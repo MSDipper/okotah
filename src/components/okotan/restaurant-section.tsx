@@ -18,7 +18,7 @@ export function RestaurantSection() {
         <div
           className="relative h-[1024px] w-full overflow-hidden lg:h-[900px]"
           style={{
-            clipPath: inView ? 'inset(0 0 0 0)' : 'inset(100% 0 0 0)',
+            clipPath: inView ? 'inset(0 0 0 0)' : 'inset(0 0 100% 0)',
             transition: 'clip-path 1.4s cubic-bezier(0.65, 0, 0.35, 1)',
           }}
         >

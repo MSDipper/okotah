@@ -45,7 +45,7 @@ export function RoomsSection() {
       <div className="flex flex-col gap-10 lg:gap-[10px]">
         <div className="contents lg:flex lg:flex-row lg:gap-[10px]">
           <div className="w-full lg:w-[755px]">
-            <RoomCard {...ROOMS[0]} showArrows allImages={ROOMS.map((r) => r.imageSrc)} />
+            <RoomCard {...ROOMS[0]} showArrows allImages={[ROOMS[3].imageSrc, ROOMS[1].imageSrc, ROOMS[2].imageSrc, ROOMS[3].imageSrc, ROOMS[3].imageSrc]} />
           </div>
           <div className="w-full lg:w-[755px]">
             <RoomCard {...ROOMS[1]} />
