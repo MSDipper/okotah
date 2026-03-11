@@ -5,9 +5,10 @@ type RoomCardProps = {
   title: string
   descriptions: string[]
   imageSrc: string
+  showArrows?: boolean
 }
 
-export function RoomCard({ title, descriptions, imageSrc }: RoomCardProps) {
+export function RoomCard({ title, descriptions, imageSrc, showArrows }: RoomCardProps) {
   return (
     <div className="isolate flex flex-col items-center pb-[370px]">
       <div className="relative z-[2] mb-[-370px] h-[720px] w-[720px] shrink-0 overflow-hidden rounded-full lg:h-[755px] lg:w-[755px]">
@@ -18,14 +19,22 @@ export function RoomCard({ title, descriptions, imageSrc }: RoomCardProps) {
           height={755}
           className="h-full w-full object-cover"
         />
-        <div className="absolute left-4 top-[336px] z-10 flex w-[688px] items-center justify-between lg:top-[354px] lg:w-[723px]">
-          <button className="flex h-12 w-12 items-center justify-center opacity-40" aria-label="Назад">
-            <img src="/icons/arrow-slider-left.svg" alt="" width={48} height={48} className="invert" />
-          </button>
-          <button className="flex h-12 w-12 items-center justify-center" aria-label="Вперёд">
-            <img src="/icons/arrow-slider-right.svg" alt="" width={48} height={48} className="invert" />
-          </button>
-        </div>
+        {showArrows && (
+          <div className="absolute left-4 top-[336px] z-10 flex w-[688px] items-center justify-between lg:top-[354px] lg:w-[723px]">
+            <button className="flex h-12 w-12 items-center justify-center opacity-40" aria-label="Назад">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="rotate-180">
+                <path d="M15 24L32 24M32 24C32 24 26.5 26 26.5 30M32 24C32 24 26.5 22 26.5 18" stroke="white"/>
+                <circle cx="24" cy="24" r="23.5" stroke="#FFFDFA"/>
+              </svg>
+            </button>
+            <button className="flex h-12 w-12 items-center justify-center" aria-label="Вперёд">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                <path d="M15 24L32 24M32 24C32 24 26.5 26 26.5 30M32 24C32 24 26.5 22 26.5 18" stroke="white"/>
+                <circle cx="24" cy="24" r="23.5" stroke="#FFFDFA"/>
+              </svg>
+            </button>
+          </div>
+        )}
       </div>
       <div className="relative z-[1] mb-[-370px] flex w-full flex-col gap-10 pb-10 pl-[130px] pr-[80px] pt-[410px] lg:pb-[100px] lg:pl-[150px]">
         <div className="flex w-[500px] max-w-full flex-col gap-6">
