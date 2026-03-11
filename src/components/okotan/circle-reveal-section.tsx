@@ -55,10 +55,17 @@ export function CircleRevealSection({
       const vh = window.innerHeight
       const vw = window.innerWidth
       const sRect = sentinel.getBoundingClientRect()
+      const cRect = content.getBoundingClientRect()
+
       const scrolled = Math.max(0, vh - sRect.top)
       const radius = scrolled * 1.2
       const diag = Math.sqrt(vw * vw + vh * vh) / 2
-      const cy = vh / 2 - Math.max(0, sRect.top)
+
+      const visibleTop = Math.max(0, cRect.top)
+      const visibleBottom = Math.min(vh, cRect.top + cRect.height)
+      const visibleCenter = visibleTop + (visibleBottom - visibleTop) / 2
+      const cy = visibleCenter - cRect.top
+      const cx = cRect.width / 2
 
       if (radius > diag) {
         if (!openRef.current) {
@@ -69,7 +76,7 @@ export function CircleRevealSection({
       } else {
         openRef.current = false
         const t = performance.now() / 600
-        pathEl.setAttribute('d', wavyEllipsePath(vw / 2, cy, radius * 1.04, radius * 0.96, t))
+        pathEl.setAttribute('d', wavyEllipsePath(cx, cy, radius * 1.04, radius * 0.96, t))
         content.style.clipPath = `url(#${clipId})`
         content.style.willChange = 'clip-path'
       }
