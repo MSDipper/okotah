@@ -1,7 +1,10 @@
+'use client'
+
 import Image from 'next/image'
 import { MenuItem } from './menu-item'
 import { SocialLink } from './social-link'
 import { BookButton } from './book-button'
+import { useInView } from './use-in-view'
 
 const NAV_LEFT = [
   { text: 'Номера', href: '#rooms' },
@@ -16,16 +19,30 @@ const NAV_RIGHT = [
 ]
 
 export function Footer() {
+  const { ref: logoRef, inView } = useInView<HTMLDivElement>(0.1)
+
   return (
-    <footer className="relative w-full overflow-hidden bg-[var(--ok-dark)]">
+    <footer ref={logoRef} className="relative w-full overflow-hidden bg-[var(--ok-dark)]">
       <div className="relative mx-auto h-[560px] w-full max-w-[1600px] md:h-[700px] lg:h-[610px]">
         <div className="absolute bottom-[-16px] left-1/2 hidden w-full -translate-x-1/2 text-center md:block lg:bottom-[-26px]">
-          <span className="font-[family-name:var(--font-display)] font-normal uppercase leading-[0.75] tracking-[-0.06em] text-[var(--ok-white)] [font-size:180px] lg:[font-size:340px]">
+          <span
+            className="inline-block font-[family-name:var(--font-display)] font-normal uppercase leading-[0.75] tracking-[-0.06em] text-[var(--ok-white)] [font-size:180px] lg:[font-size:340px]"
+            style={{
+              transform: inView ? 'translateY(0)' : 'translateY(100%)',
+              transition: 'transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)',
+            }}
+          >
             окотан
           </span>
         </div>
         <div className="absolute bottom-0 left-6 overflow-hidden md:hidden">
-          <span className="font-[family-name:var(--font-display)] text-[140px] font-normal uppercase leading-[0.8] tracking-[-0.06em] text-[var(--ok-white)]">
+          <span
+            className="inline-block font-[family-name:var(--font-display)] text-[140px] font-normal uppercase leading-[0.8] tracking-[-0.06em] text-[var(--ok-white)]"
+            style={{
+              transform: inView ? 'translateY(0)' : 'translateY(100%)',
+              transition: 'transform 1.2s cubic-bezier(0.22, 1, 0.36, 1)',
+            }}
+          >
             окотан
           </span>
         </div>

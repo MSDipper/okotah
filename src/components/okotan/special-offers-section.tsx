@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { SliderControls } from './slider-controls'
 import { Button } from './button'
 import { useOpenModal } from './modal-context'
+import { useInView } from './use-in-view'
 
 const OFFERS = [
   {
@@ -36,11 +37,19 @@ const OFFERS = [
 export function SpecialOffersSection() {
   const [current, setCurrent] = useState(0)
   const openModal = useOpenModal()
+  const { ref, inView } = useInView(0.15)
   const offer = OFFERS[current]
 
   return (
-    <div className="mx-auto flex w-full max-w-[1520px] flex-col px-6 lg:h-[700px] lg:flex-row lg:px-0">
-      <div className="relative flex h-[499px] w-full flex-col justify-between overflow-hidden bg-[var(--ok-dark)] p-10 lg:order-2 lg:h-full lg:flex-1 lg:p-14">
+    <div ref={ref} className="mx-auto flex w-full max-w-[1520px] flex-col px-6 lg:h-[700px] lg:flex-row lg:px-0">
+      <div
+        className="relative flex h-[499px] w-full flex-col justify-between overflow-hidden bg-[var(--ok-dark)] p-10 lg:order-2 lg:h-full lg:flex-1 lg:p-14"
+        style={{
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'translateX(0)' : 'translateX(60px)',
+          transition: 'opacity 1s cubic-bezier(0.22,1,0.36,1) 0.2s, transform 1s cubic-bezier(0.22,1,0.36,1) 0.2s',
+        }}
+      >
         <div className="flex max-w-[605px] flex-col gap-[60px]">
           <div className="flex flex-col gap-6">
             <h3 className="font-[family-name:var(--font-display)] text-[40px] leading-[1.2] text-[var(--ok-white)]">
@@ -76,7 +85,14 @@ export function SpecialOffersSection() {
         </div>
       </div>
 
-      <div className="relative h-[525px] w-full overflow-hidden lg:order-1 lg:h-full lg:w-[725px] lg:shrink-0">
+      <div
+        className="relative h-[525px] w-full overflow-hidden lg:order-1 lg:h-full lg:w-[725px] lg:shrink-0"
+        style={{
+          opacity: inView ? 1 : 0,
+          transform: inView ? 'translateX(0)' : 'translateX(-60px)',
+          transition: 'opacity 1s cubic-bezier(0.22,1,0.36,1), transform 1s cubic-bezier(0.22,1,0.36,1)',
+        }}
+      >
         <Image
           src="/images/okotan/offers-bg.png"
           alt=""

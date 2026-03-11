@@ -1,6 +1,11 @@
+'use client'
+
 import { PdfLink } from './pdf-link'
+import { useInView } from './use-in-view'
 
 export function RestaurantSection() {
+  const { ref, inView } = useInView(0.1)
+
   return (
     <div className="flex w-full flex-col">
       <div className="flex items-center justify-center bg-[var(--ok-dark)] px-6 py-[200px] lg:pb-[260px] lg:pt-[300px]">
@@ -9,8 +14,14 @@ export function RestaurantSection() {
         </h2>
       </div>
 
-      <div className="bg-[var(--ok-dark)]">
-        <div className="relative h-[1024px] w-full overflow-hidden lg:h-[900px]">
+      <div ref={ref} className="bg-[var(--ok-dark)]">
+        <div
+          className="relative h-[1024px] w-full overflow-hidden lg:h-[900px]"
+          style={{
+            clipPath: inView ? 'inset(0 0 0 0)' : 'inset(100% 0 0 0)',
+            transition: 'clip-path 1.4s cubic-bezier(0.65, 0, 0.35, 1)',
+          }}
+        >
           <div
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/images/okotan/restaurant-bg.png')" }}

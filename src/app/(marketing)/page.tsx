@@ -26,9 +26,7 @@ export default function HomePage() {
       <RestaurantSection />
 
       <SectionTitle text="спецпредложения" className="hidden lg:block" />
-      <h2 className="w-full max-w-[736px] whitespace-pre-line text-center font-[family-name:var(--font-display)] text-[80px] font-normal uppercase leading-[1.247] tracking-[-0.04em] text-[var(--ok-dark)] lg:hidden">
-        {'специальные\nпредложения'}
-      </h2>
+      <SectionTitle text={'специальные\nпредложения'} className="max-w-[736px] whitespace-pre-line lg:hidden" />
 
       <SpecialOffersSection />
 

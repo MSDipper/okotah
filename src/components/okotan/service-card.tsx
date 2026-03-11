@@ -1,4 +1,7 @@
+'use client'
+
 import Image from 'next/image'
+import { useInView } from './use-in-view'
 
 type ServiceCardProps = {
   title: string
@@ -6,8 +9,19 @@ type ServiceCardProps = {
 }
 
 export function ServiceCard({ title, imageSrc }: ServiceCardProps) {
+  const { ref, inView } = useInView<HTMLAnchorElement>(0.15)
+
   return (
-    <a href="#" className="group relative block h-[360px] w-full overflow-hidden">
+    <a
+      ref={ref}
+      href="#"
+      className="group relative block h-[360px] w-full overflow-hidden"
+      style={{
+        transform: inView ? 'scale(1)' : 'scale(1.08)',
+        opacity: inView ? 1 : 0,
+        transition: 'transform 1s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.8s ease',
+      }}
+    >
       <Image
         src={imageSrc}
         alt={title}

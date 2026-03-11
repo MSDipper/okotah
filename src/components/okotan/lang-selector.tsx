@@ -51,7 +51,7 @@ export function LangSelector({ variant = 'header' }: LangSelectorProps) {
       </button>
       {open && (
         <div
-          className={`absolute right-0 z-50 flex w-[82px] flex-col items-center justify-center gap-1 bg-[#ffffff26] ${isModal ? 'top-[calc(100%+8px)]' : 'top-full'}`}
+          className={`absolute right-0 z-50 flex w-[82px] flex-col items-center justify-center gap-1 bg-[var(--ok-dark)] ${isModal ? 'top-[calc(100%+8px)]' : 'top-full'}`}
         >
           {LANGUAGES.filter((lang) => lang.code !== current.code).map((lang) => (
             <button
