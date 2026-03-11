@@ -8,12 +8,6 @@ export function RestaurantSection() {
 
   return (
     <div className="flex w-full flex-col">
-      <div className="flex items-center justify-center bg-[var(--ok-dark)] px-6 py-[200px] lg:pb-[260px] lg:pt-[300px]">
-        <h2 className="text-center font-[family-name:var(--font-display)] text-[80px] font-normal uppercase leading-[1.247] tracking-[-0.04em] text-[var(--ok-white)] lg:text-[100px]">
-          ресторан
-        </h2>
-      </div>
-
       <div ref={ref} className="bg-[var(--ok-dark)]">
         <div
           className="relative h-[1024px] w-full overflow-hidden lg:h-[900px]"

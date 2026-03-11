@@ -33,44 +33,57 @@ export default function HomePage() {
       <Spacer />
 
       <CircleRevealSection zIndex={3} className="bg-[var(--ok-cream)]">
-        <div className="flex flex-col items-center gap-[200px] py-[200px] lg:gap-[300px] lg:py-[300px]">
+        <div className="flex min-h-screen items-center justify-center">
           <SectionTitle text="номера" />
-          <RoomsSection />
         </div>
       </CircleRevealSection>
 
+      <div className="relative bg-[var(--ok-cream)] px-6 py-[100px] lg:py-[150px]" style={{ zIndex: 4 }}>
+        <RoomsSection />
+      </div>
+
       <Spacer />
 
-      <CircleRevealSection zIndex={4}>
-        <RestaurantSection />
+      <CircleRevealSection zIndex={5} className="bg-[var(--ok-dark)]">
+        <div className="flex min-h-screen items-center justify-center">
+          <SectionTitle text="ресторан" color="light" />
+        </div>
       </CircleRevealSection>
 
+      <div className="relative" style={{ zIndex: 6 }}>
+        <RestaurantSection />
+      </div>
+
       <Spacer />
 
-      <CircleRevealSection zIndex={5} className="bg-[var(--ok-cream)]">
-        <div className="flex flex-col items-center gap-[200px] py-[200px] lg:gap-[300px] lg:py-[300px]">
+      <CircleRevealSection zIndex={7} className="bg-[var(--ok-cream)]">
+        <div className="flex min-h-screen items-center justify-center">
           <SectionTitle text="спецпредложения" className="hidden lg:block" />
           <SectionTitle text={'специальные\nпредложения'} className="max-w-[736px] whitespace-pre-line lg:hidden" />
-          <SpecialOffersSection />
         </div>
       </CircleRevealSection>
 
+      <div className="relative bg-[var(--ok-cream)] px-6 py-[100px] lg:py-[150px]" style={{ zIndex: 8 }}>
+        <SpecialOffersSection />
+      </div>
+
       <Spacer />
 
-      <CircleRevealSection zIndex={6} className="bg-[var(--ok-cream)]">
-        <div className="flex flex-col items-center gap-[200px] py-[200px] lg:gap-[300px] lg:py-[300px]">
+      <CircleRevealSection zIndex={9} className="bg-[var(--ok-cream)]">
+        <div className="flex min-h-screen items-center justify-center">
           <SectionTitle text="услуги" />
-          <div className="flex w-full flex-col items-center gap-20 lg:gap-[120px]">
-            <ServicesSection />
-          </div>
         </div>
       </CircleRevealSection>
 
-      <Spacer />
+      <div className="relative bg-[var(--ok-cream)] px-6 py-[100px] lg:py-[150px]" style={{ zIndex: 10 }}>
+        <div className="flex w-full flex-col items-center gap-20 lg:gap-[120px]">
+          <ServicesSection />
+        </div>
+      </div>
 
-      <CircleRevealSection zIndex={7}>
+      <div className="relative" style={{ zIndex: 11 }}>
         <Footer />
-      </CircleRevealSection>
+      </div>
     </div>
   )
 }
