@@ -41,16 +41,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      <Spacer />
-
       <div className="relative bg-[var(--ok-dark)]" style={{ zIndex: 4 }}>
         <div className="flex min-h-screen items-center justify-center">
           <SectionTitle text="ресторан" color="light" />
         </div>
         <RestaurantSection />
       </div>
-
-      <Spacer />
 
       <div className="relative bg-[var(--ok-cream)]" style={{ zIndex: 5 }}>
         <div className="flex min-h-screen items-center justify-center">
@@ -61,8 +57,6 @@ export default function HomePage() {
           <SpecialOffersSection />
         </div>
       </div>
-
-      <Spacer />
 
       <div className="relative bg-[var(--ok-cream)]" style={{ zIndex: 6 }}>
         <div className="flex min-h-screen items-center justify-center">

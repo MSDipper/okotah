@@ -58,7 +58,7 @@ export function CircleRevealSection({
       const cRect = content.getBoundingClientRect()
 
       const scrolled = Math.max(0, -sRect.top)
-      const radius = scrolled * 4.2
+      const radius = scrolled * 3.5
       const diag = Math.sqrt(vw * vw + vh * vh) / 2
 
       const cx = cRect.width / 2
