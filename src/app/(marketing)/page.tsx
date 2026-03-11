@@ -8,34 +8,69 @@ import {
   ServicesSection,
   Footer,
   CookieConsent,
+  CircleRevealSection,
 } from '@/components/okotan'
+
+function Spacer() {
+  return <div className="relative h-[30vh]" aria-hidden="true" />
+}
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col items-center gap-[200px] bg-[var(--ok-cream)] lg:gap-[300px]">
+    <div className="bg-[var(--ok-cream)]">
       <CookieConsent />
-      <div className="flex w-full flex-col">
+
+      <CircleRevealSection zIndex={1} noReveal>
         <HeroSection />
+      </CircleRevealSection>
+
+      <Spacer />
+
+      <CircleRevealSection zIndex={2}>
         <AboutSection />
-      </div>
+      </CircleRevealSection>
 
-      <SectionTitle text="номера" />
+      <Spacer />
 
-      <RoomsSection />
+      <CircleRevealSection zIndex={3} className="bg-[var(--ok-cream)]">
+        <div className="flex flex-col items-center gap-[200px] py-[200px] lg:gap-[300px] lg:py-[300px]">
+          <SectionTitle text="номера" />
+          <RoomsSection />
+        </div>
+      </CircleRevealSection>
 
-      <RestaurantSection />
+      <Spacer />
 
-      <SectionTitle text="спецпредложения" className="hidden lg:block" />
-      <SectionTitle text={'специальные\nпредложения'} className="max-w-[736px] whitespace-pre-line lg:hidden" />
+      <CircleRevealSection zIndex={4}>
+        <RestaurantSection />
+      </CircleRevealSection>
 
-      <SpecialOffersSection />
+      <Spacer />
 
-      <SectionTitle text="услуги" />
+      <CircleRevealSection zIndex={5} className="bg-[var(--ok-cream)]">
+        <div className="flex flex-col items-center gap-[200px] py-[200px] lg:gap-[300px] lg:py-[300px]">
+          <SectionTitle text="спецпредложения" className="hidden lg:block" />
+          <SectionTitle text={'специальные\nпредложения'} className="max-w-[736px] whitespace-pre-line lg:hidden" />
+          <SpecialOffersSection />
+        </div>
+      </CircleRevealSection>
 
-      <div className="flex w-full flex-col items-center gap-20 lg:gap-[120px]">
-        <ServicesSection />
+      <Spacer />
+
+      <CircleRevealSection zIndex={6} className="bg-[var(--ok-cream)]">
+        <div className="flex flex-col items-center gap-[200px] py-[200px] lg:gap-[300px] lg:py-[300px]">
+          <SectionTitle text="услуги" />
+          <div className="flex w-full flex-col items-center gap-20 lg:gap-[120px]">
+            <ServicesSection />
+          </div>
+        </div>
+      </CircleRevealSection>
+
+      <Spacer />
+
+      <CircleRevealSection zIndex={7}>
         <Footer />
-      </div>
+      </CircleRevealSection>
     </div>
   )
 }
