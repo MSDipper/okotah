@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { MenuItem } from './menu-item'
 import { SocialLink } from './social-link'
+import { BookButton } from './book-button'
 
 const NAV_LEFT = [
   { text: 'Номера', href: '#rooms' },
@@ -87,12 +88,9 @@ export function Footer() {
         </div>
 
         <div className="absolute right-[40px] top-[48px] hidden md:block lg:left-[933px] lg:right-auto lg:top-[40px]">
-          <a
-            href="#"
-            className="flex items-center justify-center bg-[var(--ok-red)] px-6 py-4 pb-[18px] font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 lg:w-[245px]"
-          >
+          <BookButton className="flex items-center justify-center bg-[var(--ok-red)] px-6 py-4 pb-[18px] font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 lg:w-[245px]">
             Забронировать
-          </a>
+          </BookButton>
         </div>
 
         <div className="absolute bottom-[140px] right-6 flex flex-col gap-[10px] md:bottom-auto md:right-[40px]  md:top-[280px] md:text-right lg:left-[1315px] lg:right-auto lg:top-[48px] lg:text-left">

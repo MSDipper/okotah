@@ -1,8 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { MenuItem } from './menu-item'
+import { LangSelector } from './lang-selector'
+import { useOpenModal } from './modal-context'
 
 const NAV_ITEMS = [
   { text: 'Номера', href: '#rooms' },
@@ -21,36 +23,73 @@ const EVENTS_SUBMENU = [
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [eventsOpen, setEventsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const openModal = useOpenModal()
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="absolute top-0 left-0 z-50 w-full">
-      <div className="mx-auto hidden w-full max-w-[1600px] items-center justify-between px-10 pt-10 pb-5 lg:flex">
+    <header className={`fixed top-0 left-0 z-50 w-full transition-colors duration-300 ${scrolled ? 'bg-[var(--ok-dark)]' : 'bg-transparent'}`}>
+      <div className={`mx-auto hidden w-full max-w-[1600px] items-center justify-between px-10 transition-[padding] duration-300 lg:flex ${scrolled ? 'py-3' : 'pt-10 pb-5'}`}>
         <a href="/" className="block shrink-0" style={{ width: 136, height: 41 }}>
           <Image src="/icons/logo.svg" alt="Окотан" width={136} height={41} priority />
         </a>
 
         <nav className="flex items-center gap-10">
-          {NAV_ITEMS.map((item) => (
-            <MenuItem key={item.text} {...item} />
-          ))}
+          {NAV_ITEMS.map((item) =>
+            item.hasChevron ? (
+              <div key={item.text} className="relative">
+                <button
+                  onClick={() => setEventsOpen(!eventsOpen)}
+                  className="inline-flex items-center justify-center gap-2 py-[10px] font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-70"
+                >
+                  {item.text}
+                  <Image
+                    src="/icons/chevron-down.svg"
+                    alt=""
+                    width={16}
+                    height={16}
+                    className={`invert transition-transform ${eventsOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {eventsOpen && (
+                  <div className="absolute left-1/2 top-full z-50 flex -translate-x-1/2 gap-6 bg-[var(--ok-dark)] p-6">
+                    <a href="#" className="group flex flex-col gap-2">
+                      <div className="relative h-[135px] w-[240px] overflow-hidden">
+                        <Image src="/images/okotan/service-conference.png" alt="" fill className="object-cover transition-transform group-hover:scale-105" />
+                      </div>
+                      <span className="font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)]">Конференц-зал</span>
+                    </a>
+                    <a href="#" className="group flex flex-col gap-2">
+                      <div className="relative h-[135px] w-[240px] overflow-hidden">
+                        <Image src="/images/okotan/service-events.png" alt="" fill className="object-cover transition-transform group-hover:scale-105" />
+                      </div>
+                      <span className="font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)]">Банкетный зал</span>
+                    </a>
+                  </div>
+                )}
+              </div>
+            ) : (
+              <MenuItem key={item.text} {...item} />
+            )
+          )}
         </nav>
 
         <div className="flex shrink-0 items-center gap-4">
-          <button className="flex items-center justify-center gap-2 rounded-[4px] px-4 py-4 pb-[18px]">
-            <span className="h-4 w-4 shrink-0 overflow-hidden rounded-full">
-              <Image src="/icons/Frame.svg" alt="" width={16} height={16} className="h-full w-full object-cover" />
-            </span>
-            <span className="font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)]">RU</span>
-            <Image src="/icons/chevron-down.svg" alt="" width={16} height={16} className="brightness-0 invert" />
-          </button>
+          <LangSelector variant="header" />
 
-          <a
-            href="#"
+          <button
+            onClick={openModal}
             className="flex items-center justify-center bg-[var(--ok-red)] px-6 py-4 pb-[18px] font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90"
             style={{ minWidth: 230 }}
           >
             Забронировать
-          </a>
+          </button>
         </div>
       </div>
 
@@ -77,12 +116,12 @@ export function Header() {
           </button>
         </div>
 
-        <a
-          href="#"
+        <button
+          onClick={openModal}
           className="flex items-center justify-center bg-[var(--ok-red)] px-6 py-3 pb-[14px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 max-md:hidden"
         >
           Забронировать
-        </a>
+        </button>
       </div>
 
       {mobileOpen && (
@@ -100,12 +139,12 @@ export function Header() {
               >
                 <Image src="/icons/close.svg" alt="" width={48} height={48} />
               </button>
-              <a
-                href="#"
+              <button
+                onClick={() => { setMobileOpen(false); openModal() }}
                 className="flex items-center justify-center bg-[var(--ok-red)] px-6 py-3 pb-[14px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90"
               >
                 Забронировать
-              </a>
+              </button>
             </div>
           </div>
 
@@ -167,13 +206,7 @@ export function Header() {
                 ))}
               </nav>
 
-              <button className="flex items-center gap-2 py-[10px]">
-                <span className="h-4 w-4 shrink-0 overflow-hidden rounded-full">
-                  <Image src="/icons/Frame.svg" alt="" width={16} height={16} className="h-full w-full object-cover" />
-                </span>
-                <span className="font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)]">RU</span>
-                <Image src="/icons/chevron-down.svg" alt="" width={16} height={16} className="brightness-0 invert" />
-              </button>
+              <LangSelector variant="header" />
             </div>
 
             <div className="mt-auto flex flex-col gap-[35px] pb-[10px] md:mt-[51px] md:pb-0">

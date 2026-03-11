@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
+import { LangSelector } from './lang-selector'
 
 type ModalFormProps = {
   isOpen: boolean
@@ -75,12 +76,9 @@ function ModalFormContent({ onClose }: { onClose: () => void }) {
               </div>
 
               <div className="relative flex h-[53px] w-full items-center gap-[2px] border-b border-[#5d5d5d] py-[16px]">
-                <button type="button" className="flex shrink-0 items-center gap-1">
-                  <div className="relative h-4 w-4 shrink-0 overflow-hidden rounded-full">
-                    <Image src="/icons/Frame.svg" alt="" width={16} height={16} className="h-full w-full object-cover" />
-                  </div>
-                  <Image src="/icons/chevron-down.svg" alt="" width={12} height={12} className="brightness-0 invert" />
-                </button>
+                <div className="flex shrink-0">
+                  <LangSelector variant="modal" />
+                </div>
                 <div className="relative flex-1">
                   <input
                     type="tel"

@@ -1,6 +1,10 @@
+'use client'
+
 import { Button } from './button'
+import { useOpenModal } from './modal-context'
 
 export function BookingForm() {
+  const openModal = useOpenModal()
   return (
     <div className="flex flex-col items-center gap-10">
       <div className="flex w-full max-w-[423px] flex-col gap-6 lg:w-auto lg:max-w-none lg:flex-row lg:items-center lg:gap-[60px]">
@@ -35,8 +39,8 @@ export function BookingForm() {
         </div>
       </div>
 
-      <Button variant="secondary" href="#">
-      Забронировать
+      <Button variant="secondary" onClick={openModal}>
+        Забронировать
       </Button>
     </div>
   )

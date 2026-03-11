@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { SliderControls } from './slider-controls'
 import { Button } from './button'
-import { ModalForm } from './modal-form'
+import { useOpenModal } from './modal-context'
 
 const OFFERS = [
   {
@@ -35,7 +35,7 @@ const OFFERS = [
 
 export function SpecialOffersSection() {
   const [current, setCurrent] = useState(0)
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const openModal = useOpenModal()
   const offer = OFFERS[current]
 
   return (
@@ -51,7 +51,7 @@ export function SpecialOffersSection() {
             </p>
           </div>
           <div className="flex items-start">
-            <Button variant="secondary" onClick={() => setIsModalOpen(true)}>
+            <Button variant="secondary" onClick={openModal}>
               Узнать подробнее
             </Button>
           </div>
@@ -84,7 +84,6 @@ export function SpecialOffersSection() {
           className="object-cover"
         />
       </div>
-      <ModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }
