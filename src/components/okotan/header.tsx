@@ -41,43 +41,9 @@ export function Header() {
         </a>
 
         <nav className="flex shrink-0 items-center gap-4 xl:gap-5 2xl:gap-6">
-          {NAV_ITEMS.map((item) =>
-            item.hasChevron ? (
-              <div key={item.text} className="relative">
-                <button
-                  onClick={() => setEventsOpen(!eventsOpen)}
-                  className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap py-[6px] font-[family-name:var(--font-body)] text-[13px] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-70 lg:text-[18px]"
-                >
-                  {item.text}
-                  <Image
-                    src="/icons/chevron-down.svg"
-                    alt=""
-                    width={12}
-                    height={12}
-                    className={`invert transition-transform ${eventsOpen ? 'rotate-180' : ''}`}
-                  />
-                </button>
-                {eventsOpen && (
-                  <div className="absolute left-1/2 top-full z-50 flex -translate-x-1/2 gap-6 bg-[var(--ok-dark)] p-6">
-                    <a href="#" className="group flex flex-col gap-2">
-                      <div className="relative h-[135px] w-[240px] overflow-hidden">
-                        <Image src="/images/okotan/service-conference.png" alt="" fill className="object-cover transition-transform group-hover:scale-105" />
-                      </div>
-                      <span className="font-[family-name:var(--font-body)] text-sm leading-[1.2] text-[var(--ok-white)]">Конференц-зал</span>
-                    </a>
-                    <a href="#" className="group flex flex-col gap-2">
-                      <div className="relative h-[135px] w-[240px] overflow-hidden">
-                        <Image src="/images/okotan/service-events.png" alt="" fill className="object-cover transition-transform group-hover:scale-105" />
-                      </div>
-                      <span className="font-[family-name:var(--font-body)] text-sm leading-[1.2] text-[var(--ok-white)]">Банкетный зал</span>
-                    </a>
-                  </div>
-                )}
-              </div>
-            ) : (
-              <MenuItem key={item.text} {...item} size="xs" />
-            )
-          )}
+          {NAV_ITEMS.map((item) => (
+            <MenuItem key={item.text} {...item} size="xs" />
+          ))}
         </nav>
 
         <div className="flex shrink-0 items-center gap-4">
