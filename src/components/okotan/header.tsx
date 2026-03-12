@@ -41,7 +41,7 @@ export function Header() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-4">
-          <LangSelector variant="header" />
+          <LangSelector variant="header" scrolled={scrolled} />
 
           <button
             onClick={openModal}
@@ -116,7 +116,7 @@ export function Header() {
 
             <div className="flex items-start justify-between">
               <nav className="flex flex-col md:gap-4">
-                {NAV_ITEMS.map((item) => (
+                {NAV_ITEMS.map((item) =>
                   <a
                     key={item.text}
                     href={item.href}
@@ -133,10 +133,10 @@ export function Header() {
                       />
                     )}
                   </a>
-                ))}
+                )}
               </nav>
 
-              <LangSelector variant="header" />
+              <LangSelector variant="header" scrolled={scrolled || mobileOpen} />
             </div>
 
             <div className="mt-auto flex flex-col gap-[35px] pb-[10px] md:mt-[51px] md:pb-0">

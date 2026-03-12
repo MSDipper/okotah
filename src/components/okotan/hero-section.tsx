@@ -37,7 +37,7 @@ export function HeroSection() {
         <div
           className="absolute left-[10px] top-[100px] right-[10px] bottom-[10px] flex flex-col gap-10 justify-end md:left-[40px] md:top-[120px] md:bottom-[40px] lg:left-10 lg:top-[120px] lg:bottom-8"
         >
-<div className="flex flex-col gap-6">
+<div className="flex flex-col gap-10">
             <div style={anim(1)}>
               <SpecialOfferBadge text={`Спецпредложение на\u00A0номер «Стандарт»`} />
             </div>

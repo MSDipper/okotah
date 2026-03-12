@@ -5,7 +5,7 @@ type WeatherWidgetProps = {
 
 export function WeatherWidget({ time, temperature }: WeatherWidgetProps) {
   return (
-    <div className="relative">
+    <div className="relative mb-[6px]">
       <span className="font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)]">
         На Камчатке сейчас
       </span>

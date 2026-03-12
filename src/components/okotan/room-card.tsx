@@ -89,7 +89,7 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
           </h3>
           <div className="flex flex-col gap-4">
             {descriptions.map((text, i) => (
-              <p key={i} className="font-[family-name:var(--font-body)] text-[16px] leading-[1.2] text-[var(--ok-dark)]">
+              <p key={i} className="font-[family-name:var(--font-body)] text-[18px] leading-[1.2] text-[var(--ok-dark)]">
                 {text}
               </p>
             ))}
