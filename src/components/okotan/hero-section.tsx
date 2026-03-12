@@ -31,7 +31,7 @@ export function HeroSection() {
           transition: 'transform 1.8s cubic-bezier(0.22,1,0.36,1)',
         }}
       />
-      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-black/25" />
 
         <div className="relative mx-auto h-full w-full max-w-[1600px]">
         <div
