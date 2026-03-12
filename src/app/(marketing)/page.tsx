@@ -32,15 +32,15 @@ export default function HomePage() {
 
       <Spacer />
 
-      <CircleRevealSection zIndex={3} className="bg-[var(--ok-cream)]" sectionId="nomera-section" switchToRelativeWhenPastId="rooms-content">
-        <div className="flex min-h-screen items-center justify-center">
-          <SectionTitle text="номера" italicLetter="о" />
+      <div id="nomera-section" className="relative bg-[var(--ok-cream)]" style={{ zIndex: 3 }}>
+        <div className="flex h-[725px] items-center justify-center">
+          <SectionTitle text="номера" italicLetter="о" className='sticky top-[100px]' drift='right' />
         </div>
-      </CircleRevealSection>
+      </div>
 
       <Spacer />
 
-      <div id="rooms-content" className="relative bg-[var(--ok-cream)] px-6 py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px]  xl:pb-0 !pb-0" style={{ zIndex: 4 }}>
+      <div id="rooms-content" className="relative bg-[var(--ok-cream)] px-6 py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px] xl:pb-0 !pb-0 !pt-0" style={{ zIndex: 4 }}>
         <RoomsSection />
       </div>
 
@@ -60,30 +60,30 @@ export default function HomePage() {
 
       <Spacer />
 
-      <CircleRevealSection zIndex={7} className="bg-[var(--ok-cream)]" switchToRelativeWhenPastId="offers-content">
-        <div className="flex min-h-screen items-center justify-center">
-          <SectionTitle text="спецпредложения" className="hidden lg:block" italicLetter="о" />
-          <SectionTitle text={'специальные\nпредложения'} className="max-w-[736px] whitespace-pre-line lg:hidden" italicLetter="о" />
+      <div className="relative bg-[var(--ok-cream)]" style={{ zIndex: 7 }}>
+        <div className="flex h-[725px] items-center justify-center">
+          <SectionTitle text="спецпредложения" className="sticky top-[100px] hidden lg:block" italicLetter="о" drift="left" driftIntensive={0.2} />
+          <SectionTitle text={'специальные\nпредложения'} className="sticky top-[100px] max-w-[736px] whitespace-pre-line lg:hidden" italicLetter="о" drift="left" driftIntensive={0.2} />
         </div>
-      </CircleRevealSection>
+      </div>
 
       <Spacer />
 
-      <div id="offers-content" className="relative bg-[var(--ok-cream)] py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px]" style={{ zIndex: 8 }}>
+      <div id="offers-content" className="relative bg-[var(--ok-cream)] py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px] !pt-0 !pb-0" style={{ zIndex: 8 }}>
         <SpecialOffersSection />
       </div>
 
       <Spacer />
 
-      <CircleRevealSection zIndex={9} className="bg-[var(--ok-cream)]" switchToRelativeWhenPastId="services-content">
-        <div className="flex min-h-screen items-center justify-center">
-          <SectionTitle text="услуги" />
+      <div className="relative bg-[var(--ok-cream)]" style={{ zIndex: 9 }}>
+        <div className="flex h-[725px] items-center justify-center">
+          <SectionTitle text="услуги" className="sticky top-[100px]" drift="right" driftIntensive={0.5} driftScale={0.0002} />
         </div>
-      </CircleRevealSection>
+      </div>
 
       <Spacer />
 
-      <div id="services-content" className="relative bg-[var(--ok-cream)] px-6 py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px]" style={{ zIndex: 10 }}>
+      <div id="services-content" className="relative bg-[var(--ok-cream)] px-6 py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px] !pt-0" style={{ zIndex: 10 }}>
         <div className="flex w-full flex-col items-center gap-16 lg:gap-20 xl:gap-[100px] 2xl:gap-[120px]">
           <ServicesSection />
         </div>

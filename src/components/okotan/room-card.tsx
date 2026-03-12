@@ -30,7 +30,7 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
       const rect = el.getBoundingClientRect()
       const center = rect.top + rect.height / 2
       const viewCenter = window.innerHeight / 2
-      setOffsetY((center - viewCenter) * 0.06)
+      setOffsetY((center - viewCenter) * 0.2)
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
