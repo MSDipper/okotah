@@ -34,34 +34,29 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/40" />
 
         <div className="relative mx-auto h-full w-full max-w-[1600px]">
-        <p
-          className="absolute left-[10px] top-[457px] w-[400px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:left-[40px] md:top-auto md:bottom-[200px]  md:whitespace-pre-line md:text-lg lg:left-10 lg:top-[480px] lg:bottom-auto  lg:whitespace-normal lg:text-base xl:top-[400px] xl:w-[274px] 2xl:top-[460px]"
-          style={anim(2)}
+        <div
+          className="absolute left-[10px] top-[100px] right-[10px] bottom-[10px] flex flex-col gap-10 justify-end md:left-[40px] md:top-[120px] md:bottom-[40px] lg:left-10 lg:top-[120px] lg:bottom-8"
         >
-          {'Синтез комфорта и культурного кода Камчатки. Находимся прямо в\u00A0терминале аэропорта Елизово'}
-        </p>
+          <div className="flex flex-col gap-6">
+            <div style={anim(1)}>
+              <SpecialOfferBadge text={`Спецпредложение на\u00A0номер «Стандарт»`} />
+            </div>
 
-        <div className="absolute left-[10px] top-[149px] md:left-[40px] md:top-[280px] lg:left-10 lg:top-[320px] xl:top-[220px] 2xl:top-[300px]" style={anim(1)}>
-          <SpecialOfferBadge text={`Спецпредложение на\u00A0номер «Стандарт»`} />
-        </div>
+            <p
+              className="w-full max-w-[400px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:whitespace-pre-line md:text-lg lg:whitespace-normal lg:text-base xl:max-w-[274px]"
+              style={anim(2)}
+            >
+              {'Синтез комфорта и культурного кода Камчатки. Находимся прямо в\u00A0терминале аэропорта Елизово'}
+            </p>
+          </div>
 
-        <div className="absolute left-[10px] top-[93px] md:left-[40px] md:top-[120px] lg:hidden" style={anim(0)}>
-          <WeatherWidget time="11:46" temperature="+17 °" />
-        </div>
-
-        <h1
-          className="absolute left-[10px] bottom-[10px] font-[family-name:var(--font-display)] text-[80px] font-normal uppercase leading-[0.75] tracking-[-0.06em] text-[var(--ok-white)] md:left-[40px] md:bottom-[40px] md:text-[140px] lg:hidden"
-          style={anim(3)}
-        >
-          окотан
-        </h1>
-
-        <div className="absolute bottom-0 left-0 hidden w-full flex-row items-end gap-11 overflow-hidden pb-8 pr-10 lg:flex" style={anim(3)}>
-          <h1 className="ml-[29px] shrink-0 font-[family-name:var(--font-display)] text-[100px] font-normal uppercase leading-[1.247] tracking-[-0.06em] text-[var(--ok-white)] lg:text-[80px] xl:text-[95px] 2xl:text-[180px]">
-            окотан
-          </h1>
-          <div className="mb-[40px] flex shrink-0 items-end gap-[36px]" style={anim(4)}>
-            <WeatherWidget time="11:46" temperature="+17 °" />
+          <div className="flex flex-row items-end gap-6 pb-2 md:gap-11 md:pb-0" style={anim(3)}>
+            <h1 className="shrink-0 font-[family-name:var(--font-display)] text-[80px] font-normal uppercase leading-[0.75] tracking-[-0.06em] text-[var(--ok-white)] md:text-[100px] md:leading-[1.247] lg:text-[80px] xl:text-[95px] 2xl:text-[180px]">
+              окотан
+            </h1>
+            <div className="mb-1 flex shrink-0 items-end gap-6 md:mb-[40px] md:gap-[36px]" style={anim(4)}>
+              <WeatherWidget time="11:46" temperature="+17 °" />
+            </div>
           </div>
         </div>
       </div>
