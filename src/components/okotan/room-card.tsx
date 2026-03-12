@@ -38,10 +38,10 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
   }, [])
 
   return (
-    <div ref={revealRef} className="isolate flex flex-col items-center pb-[220px] lg:pb-[200px] xl:pb-[200px] 2xl:pb-[378px]">
+    <div ref={revealRef} className="isolate flex flex-col items-center pb-[220px] lg:pb-[263px] xl:pb-[263px] 2xl:pb-[378px]">
       <div
         ref={parallaxRef}
-        className="relative z-[2] mb-[-220px] h-[420px] w-[420px] shrink-0 overflow-hidden rounded-full lg:mb-[-200px] lg:h-[400px] lg:w-[400px] xl:mb-[-200px] xl:h-[400px] xl:w-[400px] 2xl:mb-[-378px] 2xl:h-[755px] 2xl:w-[755px]"
+        className="relative z-[2] mb-[-220px] h-[420px] w-[420px] shrink-0 overflow-hidden rounded-full lg:mb-[-262px] lg:min-h-[525px] lg:min-w-[525px] lg:h-[525px] lg:w-[525px] xl:mb-[-262px] xl:min-h-[525px] xl:min-w-[525px] xl:h-[525px] xl:w-[525px] 2xl:mb-[-378px] 2xl:h-[755px] 2xl:w-[755px]"
         style={{
           clipPath: inView ? 'circle(50% at 50% 50%)' : 'circle(0% at 50% 50%)',
           transition: 'clip-path 1.2s cubic-bezier(0.65, 0, 0.35, 1)',
@@ -56,7 +56,7 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
           style={{ transform: `translateY(${offsetY}px)`, transition: 'transform 0.1s linear' }}
         />
         {showArrows && (
-          <div className="absolute left-4 top-[170px] z-10 flex w-[calc(100%-32px)] max-w-[380px] items-center justify-between lg:top-[200px] lg:max-w-[380px] xl:top-[200px] xl:max-w-[380px] 2xl:top-[370px] 2xl:max-w-[720px]">
+          <div className="absolute left-4 top-[170px] z-10 flex w-[calc(100%-32px)] max-w-[380px] items-center justify-between lg:top-[262px] lg:max-w-[495px] xl:top-[262px] xl:max-w-[495px] 2xl:top-[370px] 2xl:max-w-[720px]">
             <button
               onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
               className={`flex h-12 w-12 items-center justify-center transition-opacity ${currentIndex === 0 ? 'opacity-30' : 'opacity-100'}`}
@@ -82,7 +82,7 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
           </div>
         )}
       </div>
-      <div className="relative z-[1] mb-[-220px] flex w-full flex-col gap-10 pb-10 pl-[60px] pr-[40px] pt-[250px] lg:mb-[-200px] lg:pl-[60px] lg:pr-[60px] lg:pt-[250px] xl:mb-[-200px] xl:pl-[70px] xl:pr-[70px] xl:pt-[250px] 2xl:mb-[-378px] 2xl:pl-[90px] 2xl:pr-[90px] 2xl:pt-[400px]">
+      <div className="relative z-[1] mb-[-220px] flex w-full flex-col gap-10 pb-10 pl-[60px] pr-[40px] pt-[250px] lg:mb-[-262px] lg:pl-[60px] lg:pr-[60px] lg:pt-[290px] xl:mb-[-262px] xl:pl-[70px] xl:pr-[70px] xl:pt-[290px] 2xl:mb-[-378px] 2xl:pl-[90px] 2xl:pr-[90px] 2xl:pt-[400px]">
         <div className="flex w-full max-w-[500px] flex-col gap-6">
           <h3 className="font-[family-name:var(--font-display)] text-[32px] leading-[1.2] text-[var(--ok-dark)] lg:text-[28px] xl:text-[30px] 2xl:text-[40px]">
             {title}
