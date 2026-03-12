@@ -33,6 +33,8 @@ type CircleRevealSectionProps = {
   sectionId?: string
   /** Когда блок с этим id вошёл в viewport (мы до него докрутили) — sticky → relative */
   switchToRelativeWhenPastId?: string
+  /** Всегда relative (не sticky), анимация раскрытия при входе во viewport */
+  relativeReveal?: boolean
 }
 
 export function CircleRevealSection({
@@ -42,6 +44,7 @@ export function CircleRevealSection({
   noReveal = false,
   sectionId,
   switchToRelativeWhenPastId,
+  relativeReveal = false,
 }: CircleRevealSectionProps) {
   const sentinelRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -78,9 +81,20 @@ export function CircleRevealSection({
       const sRect = sentinel.getBoundingClientRect()
       const cRect = content.getBoundingClientRect()
 
-      const scrolled = Math.max(0, -sRect.top)
-      const radius = scrolled * 2.9
       const diag = Math.sqrt(vw * vw + vh * vh) / 2
+      let radius: number
+
+      if (relativeReveal) {
+        const entry = Math.max(0, vh - sRect.top)
+        const startAt = vh * 0.3
+        const active = Math.max(0, entry - startAt)
+        const range = vh * 0.75
+        const progress = Math.min(active / range, 1)
+        radius = progress * progress * (diag + 50)
+      } else {
+        const scrolled = Math.max(0, -sRect.top)
+        radius = scrolled * 2.9
+      }
 
       const cx = cRect.width / 2
       const cy = vh / 2
@@ -102,9 +116,9 @@ export function CircleRevealSection({
     }
     raf = requestAnimationFrame(update)
     return () => cancelAnimationFrame(raf)
-  }, [noReveal, clipId])
+  }, [noReveal, clipId, relativeReveal])
 
-  const positionClass = useRelative ? 'relative' : 'sticky top-0'
+  const positionClass = relativeReveal || useRelative ? 'relative' : 'sticky top-0'
 
   const blockProps = { className: `${positionClass} ${className}`, style: { zIndex } as React.CSSProperties }
   const contentBlockProps = { ...blockProps, style: { ...blockProps.style, clipPath: 'ellipse(0px 0px at 50% 50%)' as const } }

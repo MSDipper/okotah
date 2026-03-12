@@ -20,13 +20,13 @@ export default function HomePage() {
     <div className="bg-[var(--ok-cream)]">
       <CookieConsent />
 
-      <CircleRevealSection zIndex={1} noReveal switchToRelativeWhenPastId="about-section">
+      <div className="relative" style={{ zIndex: 1 }}>
         <HeroSection />
-      </CircleRevealSection>
+      </div>
 
-      <Spacer />
+      {/* <Spacer /> */}
 
-      <CircleRevealSection zIndex={2} sectionId="about-section" switchToRelativeWhenPastId="nomera-section">
+      <CircleRevealSection zIndex={2} sectionId="about-section" relativeReveal>
         <AboutSection />
       </CircleRevealSection>
 
