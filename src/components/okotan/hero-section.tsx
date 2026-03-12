@@ -35,13 +35,13 @@ export function HeroSection() {
 
         <div className="relative mx-auto h-full w-full max-w-[1600px]">
         <p
-          className="absolute left-[10px] top-[457px] w-[274px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:left-[40px] md:top-auto md:bottom-[200px] md:w-[607px] md:whitespace-pre-line md:text-lg lg:left-10 lg:top-[340px] lg:bottom-auto lg:w-[240px] lg:whitespace-normal lg:text-base xl:top-[400px] xl:w-[274px] 2xl:top-[460px]"
+          className="absolute left-[10px] top-[457px] w-[400px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:left-[40px] md:top-auto md:bottom-[200px]  md:whitespace-pre-line md:text-lg lg:left-10 lg:top-[480px] lg:bottom-auto  lg:whitespace-normal lg:text-base xl:top-[400px] xl:w-[274px] 2xl:top-[460px]"
           style={anim(2)}
         >
           {'Синтез комфорта и культурного кода Камчатки. Находимся прямо в\u00A0терминале аэропорта Елизово'}
         </p>
 
-        <div className="absolute left-[10px] top-[149px] md:left-[40px] md:top-[280px] lg:left-10 lg:top-[160px] xl:top-[220px] 2xl:top-[300px]" style={anim(1)}>
+        <div className="absolute left-[10px] top-[149px] md:left-[40px] md:top-[280px] lg:left-10 lg:top-[320px] xl:top-[220px] 2xl:top-[300px]" style={anim(1)}>
           <SpecialOfferBadge text={`Спецпредложение на\u00A0номер «Стандарт»`} />
         </div>
 
