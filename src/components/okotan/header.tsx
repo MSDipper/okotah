@@ -15,14 +15,8 @@ const NAV_ITEMS = [
   { text: 'Меню ресторана', href: '#restaurant' },
 ]
 
-const EVENTS_SUBMENU = [
-  { text: 'Конференц-зал', href: '#' },
-  { text: 'Банкетный зал', href: '#' },
-]
-
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [eventsOpen, setEventsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const openModal = useOpenModal()
 
@@ -65,7 +59,7 @@ export function Header() {
 
         <div className="absolute left-1/2 -translate-x-1/2">
           <button
-            onClick={() => { setMobileOpen(!mobileOpen); if (mobileOpen) setEventsOpen(false) }}
+            onClick={() => setMobileOpen(!mobileOpen)}
             className="flex h-12 w-12 items-center justify-center"
             aria-label="Меню"
           >
@@ -98,7 +92,7 @@ export function Header() {
             </a>
             <div className="flex items-center gap-2">
               <button
-                onClick={() => { setMobileOpen(false); setEventsOpen(false) }}
+                onClick={() => setMobileOpen(false)}
                 className="flex h-12 w-12 items-center justify-center"
                 aria-label="Закрыть"
               >
@@ -123,51 +117,22 @@ export function Header() {
             <div className="flex items-start justify-between">
               <nav className="flex flex-col md:gap-4">
                 {NAV_ITEMS.map((item) => (
-                  item.hasChevron ? (
-                    <div key={item.text}>
-                      <button
-                        onClick={() => setEventsOpen(!eventsOpen)}
-                        className="inline-flex items-center gap-2 py-[8px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)]"
-                      >
-                        {item.text}
-                        <Image
-                          src="/icons/chevron-down.svg"
-                          alt=""
-                          width={16}
-                          height={16}
-                          className={`invert transition-transform ${eventsOpen ? 'rotate-180' : ''}`}
-                        />
-                      </button>
-                      {eventsOpen && (
-                        <div className="mt-2 flex flex-col gap-2 pl-4 md:flex-row md:gap-6 md:pl-0">
-                          <a href="#" className="group flex flex-col gap-2">
-                            <div className="relative hidden h-[112px] w-[200px] overflow-hidden md:block">
-                              <Image src="/images/okotan/service-conference.png" alt="" fill className="object-cover transition-transform group-hover:scale-105" />
-                            </div>
-                            <span className="py-[6px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:py-0">
-                              Конференц-зал
-                            </span>
-                          </a>
-                          <a href="#" className="group flex flex-col gap-2">
-                            <div className="relative hidden h-[112px] w-[200px] overflow-hidden md:block">
-                              <Image src="/images/okotan/service-events.png" alt="" fill className="object-cover transition-transform group-hover:scale-105" />
-                            </div>
-                            <span className="py-[6px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:py-0">
-                              Банкетный зал
-                            </span>
-                          </a>
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <a
-                      key={item.text}
-                      href={item.href}
-                      className="py-[8px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)]"
-                    >
-                      {item.text}
-                    </a>
-                  )
+                  <a
+                    key={item.text}
+                    href={item.href}
+                    className="inline-flex items-center gap-2 py-[8px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-70"
+                  >
+                    {item.text}
+                    {item.hasChevron && (
+                      <Image
+                        src="/icons/chevron-down.svg"
+                        alt=""
+                        width={16}
+                        height={16}
+                        className="shrink-0 invert"
+                      />
+                    )}
+                  </a>
                 ))}
               </nav>
 
