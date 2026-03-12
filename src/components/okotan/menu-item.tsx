@@ -9,7 +9,7 @@ type MenuItemProps = {
 }
 
 export function MenuItem({ text, href = '#', hasChevron = false, color = 'white', size = 'md' }: MenuItemProps) {
-  const sizeClass = size === 'xs' ? 'whitespace-nowrap py-[6px] text-[13px]' : size === 'sm' ? 'whitespace-nowrap py-[6px] text-sm' : 'py-[10px] text-lg'
+  const sizeClass = size === 'xs' ? 'whitespace-nowrap py-[6px] text-[13px] lg:text-[18px]' : size === 'sm' ? 'whitespace-nowrap py-[6px] text-sm' : 'py-[10px] text-lg'
   return (
     <a
       href={href}
