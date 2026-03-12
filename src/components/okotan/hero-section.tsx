@@ -56,7 +56,7 @@ export function HeroSection() {
           окотан
         </h1>
 
-        <div className="absolute bottom-0 left-0 hidden w-full flex-row items-end gap-11 overflow-hidden pr-10 lg:flex" style={anim(3)}>
+        <div className="absolute bottom-0 left-0 hidden w-full flex-row items-end gap-11 overflow-hidden pb-8 pr-10 lg:flex" style={anim(3)}>
           <h1 className="ml-[29px] shrink-0 font-[family-name:var(--font-display)] text-[100px] font-normal uppercase leading-[1.247] tracking-[-0.06em] text-[var(--ok-white)] lg:text-[90px] xl:text-[110px] 2xl:text-[180px]">
             окотан
           </h1>
