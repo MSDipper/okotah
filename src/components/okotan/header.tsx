@@ -29,24 +29,24 @@ export function Header() {
 
   return (
     <header className={`fixed top-0 left-0 z-50 w-full transition-colors duration-300 ${scrolled ? 'bg-[var(--ok-dark)]' : 'bg-transparent'}`}>
-      <div className={`mx-auto hidden w-full max-w-[1600px] items-center justify-between gap-4 px-4 transition-[padding] duration-300 lg:flex xl:px-6 2xl:px-8 ${scrolled ? 'py-2' : 'pt-8 pb-4'}`}>
+      <div className={`mx-auto hidden w-full max-w-[1600px] items-center justify-between gap-2 px-4 transition-[padding] duration-300 lg:flex lg:gap-2 lg:px-4 xl:gap-4 xl:px-6 2xl:gap-6 2xl:px-8 ${scrolled ? 'py-2' : 'pt-8 pb-4'}`}>
         <a href="/" className="block shrink-0" style={{ width: 110, height: 33 }}>
           <Image src="/icons/logo.svg" alt="Окотан" width={110} height={33} priority />
         </a>
 
-        <nav className="flex shrink-0 items-center gap-4 xl:gap-5 2xl:gap-6">
+        <nav className="flex shrink-0 items-center gap-2 lg:gap-2 xl:gap-5 2xl:gap-6">
           {NAV_ITEMS.map((item) => (
-            <MenuItem key={item.text} {...item} size="xs" />
+            <MenuItem key={item.text} {...item} size="header" />
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-4">
+        <div className="flex shrink-0 items-center gap-2 lg:gap-2 xl:gap-4">
           <LangSelector variant="header" scrolled={scrolled} />
 
-          <button
-            onClick={openModal}
-            className="flex h-[58px] w-[230px] shrink-0 items-center justify-center bg-[var(--ok-red)] font-[family-name:var(--font-body)] text-[18px] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90"
-          >
+<button
+          onClick={openModal}
+          className="flex shrink-0 items-center justify-center bg-[var(--ok-red)] font-[family-name:var(--font-body)] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 lg:h-[52px] lg:w-[180px] lg:text-[15px] xl:h-[58px] xl:w-[230px] xl:text-[18px]"
+        >
             Забронировать
           </button>
         </div>
