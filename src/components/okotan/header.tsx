@@ -80,7 +80,7 @@ export function Header() {
           )}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-3">
+        <div className="flex shrink-0 items-center gap-[17px]">
           <LangSelector variant="header" />
 
           <button
