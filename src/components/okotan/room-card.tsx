@@ -82,7 +82,7 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
           </div>
         )}
       </div>
-      <div className="relative z-[1] mb-[-370px] flex w-full flex-col gap-10 pb-10 pl-[130px] pr-[80px] pt-[410px] lg:pb-[100px] lg:pl-[150px]">
+      <div className="relative z-[1] mb-[-370px] flex w-full flex-col gap-10 pb-10 pl-[130px] pr-[80px] pt-[410px]  lg:pl-[150px]">
         <div className="flex w-[500px] max-w-full flex-col gap-6">
           <h3 className="font-[family-name:var(--font-display)] text-[40px] leading-[1.2] text-[var(--ok-dark)]">
             {title}
