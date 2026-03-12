@@ -40,7 +40,7 @@ export default function HomePage() {
 
       <Spacer />
 
-      <div id="rooms-content" className="relative bg-[var(--ok-cream)] px-6 py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px]  xl:pb-0" style={{ zIndex: 4 }}>
+      <div id="rooms-content" className="relative bg-[var(--ok-cream)] px-6 py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px]  xl:pb-0 !pb-0" style={{ zIndex: 4 }}>
         <RoomsSection />
       </div>
 
