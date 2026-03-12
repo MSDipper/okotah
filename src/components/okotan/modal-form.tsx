@@ -1,16 +1,28 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import Image from 'next/image'
 import { LangSelector } from './lang-selector'
+
+const DURATION_MS = 250
 
 type ModalFormProps = {
   isOpen: boolean
   onClose: () => void
 }
 
-function ModalFormContent({ onClose }: { onClose: () => void }) {
+const modalTransition = { transitionDuration: `${DURATION_MS}ms` }
+
+function ModalFormContent({
+  onClose,
+  isExiting,
+  isEntered,
+}: {
+  onClose: () => void
+  isExiting: boolean
+  isEntered: boolean
+}) {
   useEffect(() => {
     document.body.style.overflow = 'hidden'
     const handleEsc = (e: KeyboardEvent) => {
@@ -23,11 +35,24 @@ function ModalFormContent({ onClose }: { onClose: () => void }) {
     }
   }, [onClose])
 
-  return (
-    <div className="fixed inset-0 z-[9999] flex items-start justify-center lg:items-center lg:px-10 lg:py-[35px]">
-      <div className="absolute inset-0 bg-black/80 max-md:hidden" onClick={onClose} />
+  const exiting = isExiting
+  const show = isEntered && !exiting
 
-      <div className="relative z-10 flex h-full w-full flex-col overflow-y-auto bg-[var(--ok-dark)] md:w-[720px] lg:h-[830px] lg:max-h-none lg:w-[1520px] lg:max-w-full lg:flex-row lg:overflow-hidden lg:bg-transparent">
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-start justify-center lg:items-center lg:px-10 lg:py-[35px]"
+      style={{ pointerEvents: exiting ? 'none' : undefined }}
+    >
+      <div
+        className={`absolute inset-0 bg-black/80 max-md:hidden transition-opacity ease-out ${show ? 'opacity-100' : 'opacity-0'}`}
+        style={modalTransition}
+        onClick={onClose}
+      />
+
+      <div
+        className={`relative z-10 flex h-full w-full flex-col overflow-y-auto bg-[var(--ok-dark)] md:w-[720px] lg:h-[830px] lg:max-h-none lg:w-[1520px] lg:max-w-full lg:flex-row lg:overflow-hidden lg:bg-transparent transition-all ease-out ${show ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
+        style={modalTransition}
+      >
         <div className="relative h-[300px] w-full shrink-0 md:h-[525px] lg:absolute lg:inset-0 lg:h-full">
           <Image
             src="/images/okotan/388d67203ea6e22404b9120e2b6e1d6a29693d64.jpg"
@@ -144,15 +169,42 @@ function ModalFormContent({ onClose }: { onClose: () => void }) {
 
 export function ModalForm({ isOpen, onClose }: ModalFormProps) {
   const [mounted, setMounted] = useState(false)
+  const [isEntered, setIsEntered] = useState(false)
+  const [isExiting, setIsExiting] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  if (!mounted || !isOpen) return null
+  useLayoutEffect(() => {
+    if (isOpen) {
+      setIsExiting(false)
+      setIsEntered(false)
+      const raf = requestAnimationFrame(() => {
+        requestAnimationFrame(() => setIsEntered(true))
+      })
+      return () => cancelAnimationFrame(raf)
+    }
+  }, [isOpen])
+
+  const handleClose = useCallback(() => {
+    setIsExiting(true)
+  }, [])
+
+  useEffect(() => {
+    if (!isExiting) return
+    const t = setTimeout(() => {
+      setIsExiting(false)
+      setIsEntered(false)
+      onClose()
+    }, DURATION_MS)
+    return () => clearTimeout(t)
+  }, [isExiting, onClose])
+
+  if (!mounted || (!isOpen && !isExiting)) return null
 
   return createPortal(
-    <ModalFormContent onClose={onClose} />,
+    <ModalFormContent onClose={handleClose} isExiting={isExiting} isEntered={isEntered} />,
     document.body
   )
 }
