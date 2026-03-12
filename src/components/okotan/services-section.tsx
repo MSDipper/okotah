@@ -15,7 +15,7 @@ const SERVICES = [
 
 export function ServicesSection() {
   return (
-    <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-0">
+    <div className="mx-auto w-full max-w-[1520px] px-6 lg:px-4 xl:px-6 2xl:px-0">
       <div className="grid grid-cols-1 gap-[10px] lg:grid-cols-2">
         {SERVICES.map((service) => (
           <ServiceCard key={service.title} {...service} />

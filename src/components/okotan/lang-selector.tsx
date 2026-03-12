@@ -38,7 +38,7 @@ export function LangSelector({ variant = 'header' }: LangSelectorProps) {
         <span className={`relative shrink-0 overflow-hidden rounded-full ${isModal ? 'h-[14px] w-[14px]' : 'h-4 w-4'}`}>
           <Image src={current.icon} alt="" width={16} height={16} className="h-full w-full object-cover" />
         </span>
-        <span className={`font-[family-name:var(--font-body)] leading-[1.2] ${isModal ? 'text-base text-[var(--ok-white)]' : 'text-lg text-[var(--ok-white)]'}`}>
+        <span className={`font-[family-name:var(--font-body)] leading-[1.2] ${isModal ? 'text-base text-[var(--ok-white)]' : 'text-base text-[var(--ok-white)]'}`}>
           {current.code}
         </span>
         <Image

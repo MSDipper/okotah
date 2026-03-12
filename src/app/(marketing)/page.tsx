@@ -12,7 +12,7 @@ import {
 } from '@/components/okotan'
 
 function Spacer() {
-  return <div className="relative" style={{ height: 0 }} aria-hidden="true" />
+  return <div className="relative" style={{ height: 20 }} aria-hidden="true" />
 }
 
 export default function HomePage() {
@@ -40,7 +40,7 @@ export default function HomePage() {
 
       <Spacer />
 
-      <div id="rooms-content" className="relative bg-[var(--ok-cream)] px-6 py-[100px]  pb-0 pb-0lg:py-[150px]" style={{ zIndex: 4 }}>
+      <div id="rooms-content" className="relative bg-[var(--ok-cream)] px-6 py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px]" style={{ zIndex: 4 }}>
         <RoomsSection />
       </div>
 
@@ -69,7 +69,7 @@ export default function HomePage() {
 
       <Spacer />
 
-      <div id="offers-content" className="relative bg-[var(--ok-cream)] px-6 py-[100px]  pb-0 pb-0lg:py-[150px]" style={{ zIndex: 8 }}>
+      <div id="offers-content" className="relative bg-[var(--ok-cream)] py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px]" style={{ zIndex: 8 }}>
         <SpecialOffersSection />
       </div>
 
@@ -83,8 +83,8 @@ export default function HomePage() {
 
       <Spacer />
 
-      <div id="services-content" className="relative bg-[var(--ok-cream)] px-6 py-[100px]  pb-0 pb-0lg:py-[150px]" style={{ zIndex: 10 }}>
-        <div className="flex w-full flex-col items-center gap-20 lg:gap-[120px]">
+      <div id="services-content" className="relative bg-[var(--ok-cream)] px-6 py-[80px] lg:py-[100px] xl:py-[120px] 2xl:py-[150px]" style={{ zIndex: 10 }}>
+        <div className="flex w-full flex-col items-center gap-16 lg:gap-20 xl:gap-[100px] 2xl:gap-[120px]">
           <ServicesSection />
         </div>
       </div>

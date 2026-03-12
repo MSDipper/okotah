@@ -29,7 +29,7 @@ export function ServiceCard({ title, imageSrc }: ServiceCardProps) {
         className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <div className="absolute bottom-10 left-10">
-        <span className="font-[family-name:var(--font-display)] text-[32px] leading-[1.2] text-[var(--ok-white)]">
+        <span className="font-[family-name:var(--font-display)] text-[26px] leading-[1.2] text-[var(--ok-white)] lg:text-[28px] xl:text-[30px] 2xl:text-[32px]">
           {title}
         </span>
       </div>

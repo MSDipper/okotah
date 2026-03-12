@@ -14,10 +14,10 @@ export function AboutSection() {
       />
       <div className="absolute inset-0 bg-black/20" />
 
-      <div className="relative flex h-full flex-col items-center px-6 pt-[212px] lg:px-10">
-        <div className="flex flex-col items-center gap-[60px] lg:gap-20">
+      <div className="relative flex h-full flex-col items-center px-6 pt-[180px] lg:px-8 lg:pt-[200px] xl:px-10 xl:pt-[212px]">
+        <div className="flex flex-col items-center gap-[50px] lg:gap-16 xl:gap-20">
           <p
-            className="max-w-[663px] whitespace-pre-line text-center font-[family-name:var(--font-body)] text-2xl leading-[1.2] text-[var(--ok-white)] lg:max-w-[785px]"
+            className="max-w-[663px] whitespace-pre-line text-center font-[family-name:var(--font-body)] text-xl leading-[1.2] text-[var(--ok-white)] lg:max-w-[700px] lg:text-2xl xl:max-w-[785px]"
             style={{
               opacity: inView ? 1 : 0,
               transform: inView ? 'translateY(0)' : 'translateY(40px)',

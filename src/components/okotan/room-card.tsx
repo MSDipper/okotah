@@ -38,10 +38,10 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
   }, [])
 
   return (
-    <div ref={revealRef} className="isolate flex flex-col items-center pb-[370px]">
+    <div ref={revealRef} className="isolate flex flex-col items-center pb-[220px] lg:pb-[210px] xl:pb-[230px] 2xl:pb-[310px]">
       <div
         ref={parallaxRef}
-        className="relative z-[2] mb-[-370px] h-[720px] w-[720px] shrink-0 overflow-hidden rounded-full lg:h-[755px] lg:w-[755px]"
+        className="relative z-[2] mb-[-220px] h-[420px] w-[420px] shrink-0 overflow-hidden rounded-full lg:mb-[-210px] lg:h-[400px] lg:w-[400px] xl:mb-[-230px] xl:h-[400px] xl:w-[400px] 2xl:mb-[-310px] 2xl:h-[620px] 2xl:w-[620px]"
         style={{
           clipPath: inView ? 'circle(50% at 50% 50%)' : 'circle(0% at 50% 50%)',
           transition: 'clip-path 1.2s cubic-bezier(0.65, 0, 0.35, 1)',
@@ -56,7 +56,7 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
           style={{ transform: `translateY(${offsetY}px)`, transition: 'transform 0.1s linear' }}
         />
         {showArrows && (
-          <div className="absolute left-4 top-[336px] z-10 flex w-[688px] items-center justify-between lg:top-[354px] lg:w-[723px]">
+          <div className="absolute left-4 top-[170px] z-10 flex w-[calc(100%-32px)] max-w-[380px] items-center justify-between lg:top-[160px] lg:max-w-[368px] xl:top-[160px] xl:max-w-[368px] 2xl:top-[290px] 2xl:max-w-[588px]">
             <button
               onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
               className={`flex h-12 w-12 items-center justify-center transition-opacity ${currentIndex === 0 ? 'opacity-30' : 'opacity-100'}`}
@@ -82,9 +82,9 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
           </div>
         )}
       </div>
-      <div className="relative z-[1] mb-[-370px] flex w-full flex-col gap-10 pb-10 pl-[130px] pr-[80px] pt-[410px]  lg:pl-[150px]">
-        <div className="flex w-[500px] max-w-full flex-col gap-6">
-          <h3 className="font-[family-name:var(--font-display)] text-[40px] leading-[1.2] text-[var(--ok-dark)]">
+      <div className="relative z-[1] mb-[-220px] flex w-full flex-col gap-10 pb-10 pl-[60px] pr-[40px] pt-[250px] lg:mb-[-210px] lg:pl-[40px] lg:pr-[40px] lg:pt-[230px] xl:mb-[-230px] xl:pl-[45px] xl:pr-[45px] xl:pt-[250px] 2xl:mb-[-310px] 2xl:pl-[90px] 2xl:pr-[70px] 2xl:pt-[335px]">
+        <div className="flex w-full max-w-[500px] flex-col gap-6">
+          <h3 className="font-[family-name:var(--font-display)] text-[32px] leading-[1.2] text-[var(--ok-dark)] lg:text-[28px] xl:text-[30px] 2xl:text-[40px]">
             {title}
           </h3>
           <div className="flex flex-col gap-4">

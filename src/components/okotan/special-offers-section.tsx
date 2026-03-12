@@ -41,9 +41,9 @@ export function SpecialOffersSection() {
   const offer = OFFERS[current]
 
   return (
-    <div ref={ref} className="mx-auto flex w-full max-w-[1520px] flex-col px-6 lg:h-[700px] lg:flex-row lg:px-0">
+    <div ref={ref} className="flex w-full flex-col lg:h-[600px] lg:flex-row xl:h-[650px] 2xl:h-[700px]">
       <div
-        className="relative flex h-[499px] w-full flex-col justify-between overflow-hidden bg-[var(--ok-dark)] p-10 lg:order-2 lg:h-full lg:flex-1 lg:p-14"
+        className="relative flex h-[499px] w-full flex-col justify-between overflow-hidden bg-[var(--ok-dark)] p-10 lg:order-2 lg:h-full lg:flex-1 lg:p-10 xl:p-12 2xl:p-14"
         style={{
           opacity: inView ? 1 : 0,
           transform: inView ? 'translateX(0)' : 'translateX(60px)',
@@ -52,7 +52,7 @@ export function SpecialOffersSection() {
       >
         <div className="flex max-w-[605px] flex-col gap-[60px]">
           <div className="flex flex-col gap-6">
-            <h3 className="font-[family-name:var(--font-display)] text-[40px] leading-[1.2] text-[var(--ok-white)]">
+            <h3 className="font-[family-name:var(--font-display)] text-[32px] leading-[1.2] text-[var(--ok-white)] lg:text-[34px] xl:text-[36px] 2xl:text-[40px]">
               {offer.title}
             </h3>
             <p className="font-[family-name:var(--font-body)] text-2xl leading-[1.2] text-[var(--ok-white)]">
@@ -86,7 +86,7 @@ export function SpecialOffersSection() {
       </div>
 
       <div
-        className="relative h-[525px] w-full overflow-hidden lg:order-1 lg:h-full lg:w-[725px] lg:shrink-0"
+        className="relative h-[525px] w-full overflow-hidden lg:order-1 lg:h-full lg:w-[500px] lg:shrink-0 xl:w-[600px] 2xl:w-[725px]"
         style={{
           opacity: inView ? 1 : 0,
           transform: inView ? 'translateX(0)' : 'translateX(-60px)',

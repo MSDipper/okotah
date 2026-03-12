@@ -33,9 +33,9 @@ export function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/40" />
 
-      <div className="relative mx-auto h-full w-full max-w-[1600px]">
+        <div className="relative mx-auto h-full w-full max-w-[1600px]">
         <p
-          className="absolute left-[10px] top-[457px] w-[274px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:left-[40px] md:top-auto md:bottom-[200px] md:w-[607px] md:whitespace-pre-line md:text-lg lg:left-10 lg:top-[631px] lg:bottom-auto lg:w-[274px] lg:whitespace-normal lg:text-base"
+          className="absolute left-[10px] top-[457px] w-[274px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:left-[40px] md:top-auto md:bottom-[200px] md:w-[607px] md:whitespace-pre-line md:text-lg lg:left-10 lg:top-[631px] lg:bottom-auto lg:w-[240px] lg:whitespace-normal lg:text-base xl:w-[274px]"
           style={anim(2)}
         >
           {'Синтез комфорта и культурного кода Камчатки. Находимся прямо в\u00A0терминале аэропорта Елизово'}
@@ -57,7 +57,7 @@ export function HeroSection() {
         </h1>
 
         <div className="absolute bottom-0 left-0 hidden w-full flex-row items-end gap-11 overflow-hidden pr-10 lg:flex" style={anim(3)}>
-          <h1 className="ml-[29px] shrink-0 font-[family-name:var(--font-display)] text-[180px] font-normal uppercase leading-[1.247] tracking-[-0.06em] text-[var(--ok-white)]">
+          <h1 className="ml-[29px] shrink-0 font-[family-name:var(--font-display)] text-[100px] font-normal uppercase leading-[1.247] tracking-[-0.06em] text-[var(--ok-white)] lg:text-[110px] xl:text-[130px] 2xl:text-[180px]">
             окотан
           </h1>
           <div className="mb-[40px] flex shrink-0 items-end gap-[36px]" style={anim(4)}>

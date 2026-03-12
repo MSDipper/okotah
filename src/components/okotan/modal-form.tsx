@@ -50,10 +50,10 @@ function ModalFormContent({
       />
 
       <div
-        className={`relative z-10 flex h-full w-full flex-col overflow-y-auto bg-[var(--ok-dark)] md:w-[720px] lg:h-[830px] lg:max-h-none lg:w-[1520px] lg:max-w-full lg:flex-row lg:overflow-hidden lg:bg-transparent transition-all ease-out ${show ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
+        className={`relative z-10 flex h-full w-full flex-col overflow-y-auto bg-[var(--ok-dark)] md:w-[520px] lg:h-[580px] lg:max-h-none lg:w-[900px] lg:max-w-full lg:flex-row lg:overflow-hidden lg:bg-transparent transition-all ease-out ${show ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}
         style={modalTransition}
       >
-        <div className="relative h-[300px] w-full shrink-0 md:h-[525px] lg:absolute lg:inset-0 lg:h-full">
+        <div className="relative h-[180px] w-full shrink-0 md:h-[300px] lg:absolute lg:inset-0 lg:h-full">
           <Image
             src="/images/okotan/388d67203ea6e22404b9120e2b6e1d6a29693d64.jpg"
             alt=""
@@ -62,7 +62,7 @@ function ModalFormContent({
           />
         </div>
 
-        <div className="relative flex w-full flex-1 flex-col bg-[var(--ok-dark)] p-6 md:p-10 lg:absolute lg:left-[48px] lg:top-1/2 lg:h-[740px] lg:w-[604px] lg:-translate-y-1/2 lg:p-[60px]">
+        <div className="relative flex w-full flex-1 flex-col bg-[var(--ok-dark)] p-6 md:p-6 lg:absolute lg:left-[24px] lg:top-1/2 lg:h-[520px] lg:w-[440px] lg:-translate-y-1/2 lg:p-[36px]">
           <div className="flex flex-col gap-4">
             <h3 className="font-[family-name:var(--font-display)] text-[32px] leading-[1.2] text-[var(--ok-white)] md:text-[40px]">
               Оставить заявку

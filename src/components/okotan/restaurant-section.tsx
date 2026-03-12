@@ -10,7 +10,7 @@ export function RestaurantSection() {
     <div className="flex w-full flex-col">
       <div ref={ref} className="bg-[var(--ok-dark)]">
         <div
-          className="relative h-[1024px] w-full overflow-hidden lg:h-[900px]"
+          className="relative h-[1024px] w-full overflow-hidden lg:h-[750px] xl:h-[820px] 2xl:h-[900px]"
           style={{
             clipPath: inView ? 'ellipse(120% 120% at 50% 50%)' : 'ellipse(0% 0% at 50% 50%)',
             transition: 'clip-path 1.4s cubic-bezier(0.65, 0, 0.35, 1)',
@@ -26,9 +26,9 @@ export function RestaurantSection() {
           />
 
           <div className="absolute bottom-10 left-6 right-6 lg:bottom-0 lg:left-0 lg:right-0 lg:mx-auto lg:w-full lg:max-w-[1480px] lg:px-0 lg:pb-[60px]">
-            <div className="flex flex-col items-start gap-10 lg:flex-row lg:items-end lg:justify-between lg:gap-6">
+            <div className="flex flex-col items-start gap-10 px-6 lg:flex-row lg:items-end lg:justify-between lg:gap-6 lg:px-10">
               <div className="flex flex-col gap-6">
-                <h3 className="max-w-[698px] font-[family-name:var(--font-display)] text-[40px] leading-[1.2] text-[var(--ok-white)]">
+                <h3 className="max-w-[698px] font-[family-name:var(--font-display)] text-[32px] leading-[1.2] text-[var(--ok-white)] lg:text-[34px] xl:text-[36px] 2xl:text-[40px]">
                   «Камчатка | Гастрономия дикой{'\u00A0'}природы»
                 </h3>
                 <p className="max-w-[647px] font-[family-name:var(--font-body)] text-2xl leading-[1.2] text-[var(--ok-white)]">

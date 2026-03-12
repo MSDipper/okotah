@@ -15,7 +15,7 @@ export function SectionTitle({ text, color = 'dark', className = '' }: SectionTi
   return (
     <h2
       ref={ref}
-      className={`w-full text-center font-[family-name:var(--font-display)] text-[80px] font-normal uppercase leading-[1.247] tracking-[-0.04em] lg:text-[100px] ${
+      className={`w-full text-center font-[family-name:var(--font-display)] text-[80px] font-normal uppercase leading-[1.247] tracking-[-0.04em] lg:text-[65px] xl:text-[75px] 2xl:text-[100px] ${
         color === 'dark' ? 'text-[var(--ok-dark)]' : 'text-[var(--ok-white)]'
       } ${className}`}
     >

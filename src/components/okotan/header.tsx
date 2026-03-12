@@ -35,25 +35,25 @@ export function Header() {
 
   return (
     <header className={`fixed top-0 left-0 z-50 w-full transition-colors duration-300 ${scrolled ? 'bg-[var(--ok-dark)]' : 'bg-transparent'}`}>
-      <div className={`mx-auto hidden w-full max-w-[1600px] items-center justify-between px-10 transition-[padding] duration-300 lg:flex ${scrolled ? 'py-3' : 'pt-10 pb-5'}`}>
-        <a href="/" className="block shrink-0" style={{ width: 136, height: 41 }}>
-          <Image src="/icons/logo.svg" alt="Окотан" width={136} height={41} priority />
+      <div className={`mx-auto hidden w-full max-w-[1600px] items-center justify-between gap-4 px-4 transition-[padding] duration-300 lg:flex xl:px-6 2xl:px-8 ${scrolled ? 'py-2' : 'pt-8 pb-4'}`}>
+        <a href="/" className="block shrink-0" style={{ width: 110, height: 33 }}>
+          <Image src="/icons/logo.svg" alt="Окотан" width={110} height={33} priority />
         </a>
 
-        <nav className="flex items-center gap-10">
+        <nav className="flex shrink-0 items-center gap-4 xl:gap-5 2xl:gap-6">
           {NAV_ITEMS.map((item) =>
             item.hasChevron ? (
               <div key={item.text} className="relative">
                 <button
                   onClick={() => setEventsOpen(!eventsOpen)}
-                  className="inline-flex items-center justify-center gap-2 py-[10px] font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-70"
+                  className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap py-[6px] font-[family-name:var(--font-body)] text-[13px] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-70"
                 >
                   {item.text}
                   <Image
                     src="/icons/chevron-down.svg"
                     alt=""
-                    width={16}
-                    height={16}
+                    width={12}
+                    height={12}
                     className={`invert transition-transform ${eventsOpen ? 'rotate-180' : ''}`}
                   />
                 </button>
@@ -63,30 +63,29 @@ export function Header() {
                       <div className="relative h-[135px] w-[240px] overflow-hidden">
                         <Image src="/images/okotan/service-conference.png" alt="" fill className="object-cover transition-transform group-hover:scale-105" />
                       </div>
-                      <span className="font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)]">Конференц-зал</span>
+                      <span className="font-[family-name:var(--font-body)] text-sm leading-[1.2] text-[var(--ok-white)]">Конференц-зал</span>
                     </a>
                     <a href="#" className="group flex flex-col gap-2">
                       <div className="relative h-[135px] w-[240px] overflow-hidden">
                         <Image src="/images/okotan/service-events.png" alt="" fill className="object-cover transition-transform group-hover:scale-105" />
                       </div>
-                      <span className="font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)]">Банкетный зал</span>
+                      <span className="font-[family-name:var(--font-body)] text-sm leading-[1.2] text-[var(--ok-white)]">Банкетный зал</span>
                     </a>
                   </div>
                 )}
               </div>
             ) : (
-              <MenuItem key={item.text} {...item} />
+              <MenuItem key={item.text} {...item} size="xs" />
             )
           )}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-4">
+        <div className="flex shrink-0 items-center gap-3">
           <LangSelector variant="header" />
 
           <button
             onClick={openModal}
-            className="flex items-center justify-center bg-[var(--ok-red)] px-6 py-4 pb-[18px] font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90"
-            style={{ minWidth: 230 }}
+            className="flex min-w-[140px] shrink-0 items-center justify-center bg-[var(--ok-red)] px-3 py-1.5 pb-[10px] font-[family-name:var(--font-body)] text-[13px] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 xl:min-w-[150px] xl:px-3 xl:py-2 xl:pb-[12px]"
           >
             Забронировать
           </button>
@@ -118,7 +117,7 @@ export function Header() {
 
         <button
           onClick={openModal}
-          className="flex items-center justify-center bg-[var(--ok-red)] px-6 py-3 pb-[14px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 max-md:hidden"
+          className="flex items-center justify-center bg-[var(--ok-red)] px-4 py-2 pb-[10px] font-[family-name:var(--font-body)] text-sm leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 max-md:hidden"
         >
           Забронировать
         </button>
@@ -141,7 +140,7 @@ export function Header() {
               </button>
               <button
                 onClick={() => { setMobileOpen(false); openModal() }}
-                className="flex items-center justify-center bg-[var(--ok-red)] px-6 py-3 pb-[14px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90"
+                className="flex items-center justify-center bg-[var(--ok-red)] px-4 py-2 pb-[10px] font-[family-name:var(--font-body)] text-sm leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90"
               >
                 Забронировать
               </button>
@@ -162,7 +161,7 @@ export function Header() {
                     <div key={item.text}>
                       <button
                         onClick={() => setEventsOpen(!eventsOpen)}
-                        className="inline-flex items-center gap-2 py-[10px] font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)]"
+                        className="inline-flex items-center gap-2 py-[8px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)]"
                       >
                         {item.text}
                         <Image
@@ -198,7 +197,7 @@ export function Header() {
                     <a
                       key={item.text}
                       href={item.href}
-                      className="py-[10px] font-[family-name:var(--font-body)] text-lg leading-[1.2] text-[var(--ok-white)]"
+                      className="py-[8px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)]"
                     >
                       {item.text}
                     </a>
