@@ -39,8 +39,8 @@ export function BookingForm() {
         </div>
       </div>
 
-      <Button variant="secondary" onClick={openModal}>
-        Забронировать
+      <Button variant="secondary" onClick={openModal} className="h-[56px] w-[209px]">
+        Подобрать номер
       </Button>
     </div>
   )

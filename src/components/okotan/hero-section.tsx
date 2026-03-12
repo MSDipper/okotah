@@ -43,7 +43,7 @@ export function HeroSection() {
             </div>
 
             <p
-              className="w-full max-w-[400px] font-[family-name:var(--font-body)] text-base leading-[1.2] text-[var(--ok-white)] md:whitespace-pre-line md:text-lg lg:whitespace-normal lg:text-base xl:max-w-[274px]"
+              className="w-full max-w-[446px] font-[family-name:var(--font-body)] text-[18px] leading-[1.2] text-[var(--ok-white)] md:whitespace-pre-line lg:whitespace-normal "
               style={anim(2)}
             >
               {'Синтез комфорта и культурного кода Камчатки. Находимся прямо в\u00A0терминале аэропорта Елизово'}
@@ -52,7 +52,7 @@ export function HeroSection() {
 
           <div className="flex flex-row items-end gap-6 pb-2 md:gap-11 md:pb-0" style={anim(3)}>
             <h1 className="shrink-0 font-[family-name:var(--font-display)] text-[80px] font-normal uppercase leading-[0.75] tracking-[-0.06em] text-[var(--ok-white)] md:text-[100px] md:leading-[1.247] lg:text-[80px] xl:text-[95px] 2xl:text-[180px]">
-              окотан
+              ок<span className="-ml-[7px] mr-[18px] italic">о</span>тан
             </h1>
             <div className="mb-1 flex shrink-0 items-end gap-6 md:mb-[40px] md:gap-[36px]" style={anim(4)}>
               <WeatherWidget time="11:46" temperature="+17 °" />

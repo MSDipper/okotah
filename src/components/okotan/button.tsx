@@ -25,8 +25,8 @@ const variantStyles: Record<Variant, string> = {
     'inline-flex flex-col items-start gap-1 font-[var(--font-body)] text-lg leading-[1.2] text-[var(--ok-red)] transition-opacity hover:opacity-80',
 }
 
-export function Button({ variant = 'primary', children, ...props }: ButtonProps) {
-  const className = `${variantStyles[variant]} ${(props as Record<string, string>).className || ''}`.trim()
+export function Button({ variant = 'primary', children, className: classNameProp, ...props }: ButtonProps) {
+  const className = `${variantStyles[variant]} ${classNameProp || ''}`.trim()
 
   if (variant === 'tertiary') {
     const inner = (

@@ -44,19 +44,19 @@ export function RoomsSection() {
     <div className="mx-auto w-full max-w-[1520px] px-6 lg:flex lg:flex-col lg:items-center lg:px-4 xl:px-6 2xl:px-0">
       <div className="flex flex-col gap-10 lg:gap-[10px]">
         <div className="contents lg:flex lg:flex-row lg:justify-center lg:gap-[10px]">
-          <div className="w-full lg:min-w-0 lg:max-w-[420px] xl:max-w-[420px] 2xl:max-w-[755px]">
+          <div className="w-full lg:min-w-0 lg:max-w-[755px]">
             <RoomCard {...ROOMS[0]} showArrows allImages={[ROOMS[3].imageSrc, ROOMS[1].imageSrc, ROOMS[2].imageSrc, ROOMS[3].imageSrc, ROOMS[3].imageSrc]} />
           </div>
-          <div className="w-full lg:min-w-0 lg:max-w-[420px] xl:max-w-[420px] 2xl:max-w-[755px]">
+          <div className="w-full lg:min-w-0 lg:max-w-[755px]">
             <RoomCard {...ROOMS[1]} />
           </div>
         </div>
 
         <div className="contents lg:flex lg:flex-row lg:justify-center lg:gap-[10px]">
-          <div className="w-full lg:min-w-0 lg:max-w-[420px] xl:max-w-[420px] 2xl:max-w-[755px]">
+          <div className="w-full lg:min-w-0 lg:max-w-[755px]">
             <RoomCard {...ROOMS[2]} />
           </div>
-          <div className="w-full lg:min-w-0 lg:max-w-[420px] xl:max-w-[420px] 2xl:max-w-[755px]">
+          <div className="w-full lg:min-w-0 lg:max-w-[755px]">
             <RoomCard {...ROOMS[3]} />
           </div>
         </div>

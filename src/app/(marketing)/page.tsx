@@ -34,7 +34,7 @@ export default function HomePage() {
 
       <CircleRevealSection zIndex={3} className="bg-[var(--ok-cream)]" sectionId="nomera-section" switchToRelativeWhenPastId="rooms-content">
         <div className="flex min-h-screen items-center justify-center">
-          <SectionTitle text="номера" />
+          <SectionTitle text="номера" italicLetter="о" />
         </div>
       </CircleRevealSection>
 
@@ -48,7 +48,7 @@ export default function HomePage() {
 
       <CircleRevealSection zIndex={5} className="bg-[var(--ok-dark)]" switchToRelativeWhenPastId="restaurant-content">
         <div className="flex min-h-screen items-center justify-center">
-          <SectionTitle text="ресторан" color="light" />
+          <SectionTitle text="ресторан" color="light" italicLetter="о" />
         </div>
       </CircleRevealSection>
 
@@ -62,8 +62,8 @@ export default function HomePage() {
 
       <CircleRevealSection zIndex={7} className="bg-[var(--ok-cream)]" switchToRelativeWhenPastId="offers-content">
         <div className="flex min-h-screen items-center justify-center">
-          <SectionTitle text="спецпредложения" className="hidden lg:block" />
-          <SectionTitle text={'специальные\nпредложения'} className="max-w-[736px] whitespace-pre-line lg:hidden" />
+          <SectionTitle text="спецпредложения" className="hidden lg:block" italicLetter="о" />
+          <SectionTitle text={'специальные\nпредложения'} className="max-w-[736px] whitespace-pre-line lg:hidden" italicLetter="о" />
         </div>
       </CircleRevealSection>
 

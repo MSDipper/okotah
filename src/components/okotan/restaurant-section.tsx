@@ -20,10 +20,6 @@ export function RestaurantSection() {
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/images/okotan/restaurant-bg.png')" }}
           />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'linear-gradient(180deg, rgba(0,0,0,0) 11%, rgba(0,0,0,0.9) 70%)' }}
-          />
 
           <div className="absolute bottom-10 left-6 right-6 lg:bottom-0 lg:left-0 lg:right-0 lg:mx-auto lg:w-full lg:max-w-[1480px] lg:px-0 lg:pb-[60px]">
             <div className="flex flex-col items-start gap-10 px-6 lg:flex-row lg:items-end lg:justify-between lg:gap-6 lg:px-10">

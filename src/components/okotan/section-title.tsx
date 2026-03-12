@@ -6,9 +6,11 @@ type SectionTitleProps = {
   text: string
   color?: 'dark' | 'light'
   className?: string
+  /** Буква в italic (например "о" для «номера») */
+  italicLetter?: string
 }
 
-export function SectionTitle({ text, color = 'dark', className = '' }: SectionTitleProps) {
+export function SectionTitle({ text, color = 'dark', className = '', italicLetter }: SectionTitleProps) {
   const { ref, inView } = useInView<HTMLHeadingElement>(0.3)
   const chars = text.split('')
 
@@ -22,7 +24,7 @@ export function SectionTitle({ text, color = 'dark', className = '' }: SectionTi
       {chars.map((char, i) => (
         <span
           key={i}
-          className="inline-block"
+          className={`inline-block ${italicLetter && (char === italicLetter || char === italicLetter.toUpperCase()) ? 'italic -ml-[7px] mr-[8px]' : ''}`}
           style={{
             opacity: inView ? 1 : 0,
             transform: inView ? 'translateY(0)' : 'translateY(60px)',

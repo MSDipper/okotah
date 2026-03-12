@@ -41,9 +41,9 @@ export function SpecialOffersSection() {
   const offer = OFFERS[current]
 
   return (
-    <div ref={ref} className="flex w-full flex-col lg:h-[600px] lg:flex-row xl:h-[650px] 2xl:h-[700px] px-5 max-w-[1520px]">
+    <div ref={ref} className="flex w-full flex-col lg:h-[600px] lg:flex-row xl:h-[650px] 2xl:h-[700px] px-5 max-w-[1520px] flex justify-center items-center mx-auto">
       <div
-        className="relative flex h-[499px] w-full flex-col justify-between overflow-hidden bg-[var(--ok-dark)] p-10 lg:order-2 lg:h-full lg:flex-1 lg:p-10 xl:p-12 2xl:p-14"
+        className="relative flex h-[499px] w-full flex-col justify-between overflow-hidden bg-[var(--ok-dark)] p-10 lg:order-2 lg:h-full lg:flex-1 lg:p-10 xl:p-12 2xl:p-14 "
         style={{
           opacity: inView ? 1 : 0,
           transform: inView ? 'translateX(0)' : 'translateX(60px)',
@@ -60,7 +60,7 @@ export function SpecialOffersSection() {
             </p>
           </div>
           <div className="flex items-start">
-            <Button variant="secondary" onClick={openModal}>
+            <Button variant="secondary" onClick={openModal} className="h-[57px] w-[212px]">
               Узнать подробнее
             </Button>
           </div>
@@ -73,9 +73,9 @@ export function SpecialOffersSection() {
           onNext={() => setCurrent((p) => Math.min(OFFERS.length - 1, p + 1))}
         />
 
-        <div className="pointer-events-none absolute left-[550px] top-[171px] opacity-[0.15] max-lg:hidden">
-          <svg width="429" height="420" viewBox="0 0 429 420" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="214" cy="210" r="209" stroke="var(--ok-white)" strokeWidth="1" />
+        <div className="pointer-events-none absolute left-[550px] top-[171px] max-lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" width="245" height="421" viewBox="0 0 245 421" fill="none">
+            <path opacity="0.15" d="M130.496 6.82715C182.609 -8.24623 261.671 3.95746 326.305 39.7637L326.418 39.8262H326.449C375.242 66.8979 402.792 102.342 416.598 142.078C430.203 181.239 430.472 224.605 424.501 268.298L424.212 270.379C419.522 303.519 400.496 340.754 372.229 369.782C343.964 398.808 306.508 419.58 264.987 419.893C219.248 420.222 170.057 415.838 109.287 384.921H109.286C55.9396 357.808 11.2039 304.913 3.42871 246.185C0.0411647 220.539 -0.7169 201.227 2.80469 181.319C6.32713 161.407 14.1374 140.864 27.9385 112.77C49.2689 69.3251 78.4184 21.8812 130.496 6.82715ZM297.446 82.1133C222.205 50.0482 135.272 85.1943 103.3 160.651C71.3284 236.107 106.371 323.291 181.612 355.355C256.854 387.42 343.786 352.274 375.758 276.817C407.729 201.362 372.687 114.178 297.446 82.1133Z" stroke="#FFFDFA"/>
           </svg>
         </div>
         <div className="pointer-events-none absolute right-0 top-0 opacity-[0.08] lg:hidden">

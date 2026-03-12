@@ -5,11 +5,11 @@ type MenuItemProps = {
   href?: string
   hasChevron?: boolean
   color?: 'white' | 'dark'
-  size?: 'xs' | 'sm' | 'md'
+  size?: 'xs' | 'sm' | 'md' | 'footer'
 }
 
 export function MenuItem({ text, href = '#', hasChevron = false, color = 'white', size = 'md' }: MenuItemProps) {
-  const sizeClass = size === 'xs' ? 'whitespace-nowrap py-[6px] text-[13px] lg:text-[18px]' : size === 'sm' ? 'whitespace-nowrap py-[6px] text-sm' : 'py-[10px] text-lg'
+  const sizeClass = size === 'xs' ? 'whitespace-nowrap py-[6px] text-[13px] lg:text-[18px]' : size === 'sm' ? 'whitespace-nowrap py-[6px] text-sm' : size === 'footer' ? 'py-0 text-lg' : 'py-[10px] text-lg'
   return (
     <a
       href={href}
