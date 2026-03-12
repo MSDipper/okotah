@@ -7,7 +7,7 @@ export function AboutSection() {
   const { ref, inView } = useInView<HTMLElement>(0.2)
 
   return (
-    <section ref={ref} className="relative h-[1024px] w-full overflow-hidden lg:h-[900px]">
+    <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/images/okotan/about-bg.png')" }}

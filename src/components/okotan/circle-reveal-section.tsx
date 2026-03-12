@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, type ReactNode } from 'react'
+import { useRef, useEffect, useState, type ReactNode } from 'react'
 
 function wavyEllipsePath(
   cx: number,
@@ -29,6 +29,10 @@ type CircleRevealSectionProps = {
   className?: string
   zIndex?: number
   noReveal?: boolean
+  /** id для этого блока (для ссылок switchToRelativeWhenPastId) */
+  sectionId?: string
+  /** Когда блок с этим id вошёл в viewport (мы до него докрутили) — sticky → relative */
+  switchToRelativeWhenPastId?: string
 }
 
 export function CircleRevealSection({
@@ -36,12 +40,29 @@ export function CircleRevealSection({
   className = '',
   zIndex = 1,
   noReveal = false,
+  sectionId,
+  switchToRelativeWhenPastId,
 }: CircleRevealSectionProps) {
   const sentinelRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
   const pathRef = useRef<SVGPathElement>(null)
   const openRef = useRef(noReveal)
   const clipId = `reveal-clip-${zIndex}`
+  const [useRelative, setUseRelative] = useState(false)
+
+  useEffect(() => {
+    if (!switchToRelativeWhenPastId) return
+    let raf: number
+    const check = () => {
+      const el = document.getElementById(switchToRelativeWhenPastId)
+      const rect = el?.getBoundingClientRect()
+      // Переключаем, когда целевой блок вошёл в viewport (мы до него прокрутили) + 100px
+      setUseRelative(!!(rect && rect.top < window.innerHeight - 1000))
+      raf = requestAnimationFrame(check)
+    }
+    raf = requestAnimationFrame(check)
+    return () => cancelAnimationFrame(raf)
+  }, [switchToRelativeWhenPastId])
 
   useEffect(() => {
     if (noReveal) return
@@ -58,7 +79,7 @@ export function CircleRevealSection({
       const cRect = content.getBoundingClientRect()
 
       const scrolled = Math.max(0, -sRect.top)
-      const radius = scrolled * 3.2
+      const radius = scrolled * 3.5
       const diag = Math.sqrt(vw * vw + vh * vh) / 2
 
       const cx = cRect.width / 2
@@ -83,11 +104,20 @@ export function CircleRevealSection({
     return () => cancelAnimationFrame(raf)
   }, [noReveal, clipId])
 
+  const positionClass = useRelative ? 'relative' : 'sticky top-0'
+
+  const blockProps = { className: `${positionClass} ${className}`, style: { zIndex } as React.CSSProperties }
+  const contentBlockProps = { ...blockProps, style: { ...blockProps.style, clipPath: 'ellipse(0px 0px at 50% 50%)' as const } }
+  if (sectionId) {
+    (blockProps as Record<string, unknown>).id = sectionId
+    ;(contentBlockProps as Record<string, unknown>).id = sectionId
+  }
+
   if (noReveal) {
     return (
       <>
         <div className="pointer-events-none h-0" aria-hidden="true" />
-        <div className={`sticky top-0 ${className}`} style={{ zIndex }}>
+        <div {...blockProps}>
           {children}
         </div>
       </>
@@ -106,8 +136,7 @@ export function CircleRevealSection({
       </svg>
       <div
         ref={contentRef}
-        className={`sticky top-0 ${className}`}
-        style={{ zIndex, clipPath: 'ellipse(0px 0px at 50% 50%)' }}
+        {...contentBlockProps}
       >
         {children}
       </div>
