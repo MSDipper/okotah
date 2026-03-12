@@ -85,7 +85,7 @@ export function Header() {
 
           <button
             onClick={openModal}
-            className="flex min-w-[140px] shrink-0 items-center justify-center bg-[var(--ok-red)] px-3 py-1.5 pb-[10px] font-[family-name:var(--font-body)] text-[13px] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 xl:min-w-[150px] xl:px-3 xl:py-2 xl:pb-[12px]"
+            className="flex min-w-[140px] shrink-0 items-center justify-center bg-[var(--ok-red)] px-3 py-1.5 pb-[10px] font-[family-name:var(--font-body)] text-[13px] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-90 xl:min-w-[150px] xl:px-3 xl:py-2  "
           >
             Забронировать
           </button>
