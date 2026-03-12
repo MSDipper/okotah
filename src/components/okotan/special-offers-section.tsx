@@ -41,7 +41,7 @@ export function SpecialOffersSection() {
   const offer = OFFERS[current]
 
   return (
-    <div ref={ref} className="flex w-full flex-col lg:h-[600px] lg:flex-row xl:h-[650px] 2xl:h-[700px]">
+    <div ref={ref} className="flex w-full flex-col lg:h-[600px] lg:flex-row xl:h-[650px] 2xl:h-[700px] px-5 max-w-[1520px]">
       <div
         className="relative flex h-[499px] w-full flex-col justify-between overflow-hidden bg-[var(--ok-dark)] p-10 lg:order-2 lg:h-full lg:flex-1 lg:p-10 xl:p-12 2xl:p-14"
         style={{
