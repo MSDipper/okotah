@@ -46,7 +46,7 @@ export function Header() {
               <div key={item.text} className="relative">
                 <button
                   onClick={() => setEventsOpen(!eventsOpen)}
-                  className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap py-[6px] font-[family-name:var(--font-body)] text-[13px] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-70"
+                  className="inline-flex items-center justify-center gap-1.5 whitespace-nowrap py-[6px] font-[family-name:var(--font-body)] text-[13px] leading-[1.2] text-[var(--ok-white)] transition-opacity hover:opacity-70 lg:text-[18px]"
                 >
                   {item.text}
                   <Image
