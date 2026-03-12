@@ -72,7 +72,7 @@ export function LangSelector({ variant = 'header', scrolled = false }: LangSelec
           className={`absolute right-0 z-50  flex min-w-[88px] flex-col items-center justify-center overflow-hidden gap-3 h-[84px] py-2 shadow-lg ${
             useDarkDropdown
               ? ' bg-[var(--ok-dark)]'
-              : '/20 bg-[var(--ok-white-10)] backdrop-blur-[7px]'
+              : '/20 bg-[var(--ok-white-10)] backdrop-blur-[1px]'
           }`}
         >
           {LANGUAGES.filter((lang) => lang.code !== current.code).map((lang) => (
