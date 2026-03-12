@@ -114,7 +114,7 @@ export function Footer() {
           <span className="max-w-[245px] whitespace-pre-line font-[family-name:var(--font-body)] text-[12px] leading-[1.2] text-[var(--ok-white)] opacity-40">
             {'Отель Окотан 2025 © Все права защищены\nПрисвоена категория: «Пять звёзд»\nРеестровая запись: С412024005764 по\u00A0свидетельству А010-00130-77/01216258 от 24.11.2025\nИНН: 4105022915 | ОГРН: 1024101223332'}
           </span>
-          <a href="#" className="font-[family-name:var(--font-body)] text-[18px] leading-[1.2] text-[var(--ok-white)] underline transition-opacity hover:opacity-70">
+          <a href="#" className="font-[family-name:var(--font-body)] text-[12px] leading-[1.2] text-[var(--ok-white)] underline transition-opacity hover:opacity-70">
             Политика конфиденциальности
           </a>
         </div>
