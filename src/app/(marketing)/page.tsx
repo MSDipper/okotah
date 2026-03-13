@@ -47,9 +47,10 @@ export default function HomePage() {
       <Spacer />
 
       <CircleRevealSection zIndex={5} className="bg-[var(--ok-dark)]" switchToRelativeWhenPastId="restaurant-content">
-        <div className="flex min-h-[150vh] items-center justify-center">
+        <div className="flex h-screen items-center justify-center">
           <SectionTitle text="ресторан" color="light" italicLetter="о" />
         </div>
+        <div className="h-[50vh]" aria-hidden="true" />
       </CircleRevealSection>
 
       <Spacer />
