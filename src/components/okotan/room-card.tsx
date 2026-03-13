@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import { Button } from './button'
 import { useOpenModal } from './modal-context'
@@ -20,27 +20,10 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
   const [currentIndex, setCurrentIndex] = useState(0)
   const displaySrc = images[currentIndex]
   const { ref: revealRef, inView } = useInView(0.15)
-  const parallaxRef = useRef<HTMLDivElement>(null)
-  const [offsetY, setOffsetY] = useState(0)
-
-  useEffect(() => {
-    const onScroll = () => {
-      const el = parallaxRef.current
-      if (!el) return
-      const rect = el.getBoundingClientRect()
-      const center = rect.top + rect.height / 2
-      const viewCenter = window.innerHeight / 2
-      setOffsetY((center - viewCenter) * 0.2)
-    }
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   return (
     <div ref={revealRef} className="isolate flex flex-col items-center pb-[220px] lg:pb-[263px] xl:pb-[263px] 2xl:pb-[378px]">
       <div
-        ref={parallaxRef}
         className="relative z-[2] mb-[-220px] aspect-square w-[420px] shrink-0 overflow-hidden rounded-full lg:mb-[-262px] lg:w-[525px] xl:mb-[-262px] xl:w-[525px] 2xl:mb-[-378px] 2xl:w-[755px]"
         style={{
           transform: inView ? 'scale(1)' : 'scale(0)',
@@ -53,7 +36,6 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
           width={755}
           height={755}
           className="h-full w-full object-cover"
-          style={{ transform: `translateY(${offsetY}px)`, transition: 'transform 0.1s linear' }}
         />
         {showArrows && (
           <div className="absolute left-4 top-[170px] z-10 flex w-[calc(100%-32px)] max-w-[380px] items-center justify-between lg:top-[262px] lg:max-w-[495px] xl:top-[262px] xl:max-w-[495px] 2xl:top-[370px] 2xl:max-w-[720px]">
