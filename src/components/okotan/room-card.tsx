@@ -1,14 +1,10 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { Button } from './button'
 import { useOpenModal } from './modal-context'
 import { useInView } from './use-in-view'
-
-function easeInOutCubic(t: number): number {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2
-}
 
 type RoomCardProps = {
   title: string
@@ -24,10 +20,8 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
   const [currentIndex, setCurrentIndex] = useState(0)
   const displaySrc = images[currentIndex]
   const { ref: revealRef, inView } = useInView(0.15)
-  const circleRef = useRef<HTMLDivElement>(null)
   const parallaxRef = useRef<HTMLDivElement>(null)
   const [offsetY, setOffsetY] = useState(0)
-  const revealedRef = useRef(false)
 
   useEffect(() => {
     const onScroll = () => {
@@ -43,43 +37,15 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const animateReveal = useCallback(() => {
-    const el = circleRef.current
-    if (!el || revealedRef.current) return
-    revealedRef.current = true
-
-    const duration = 1200
-    const start = performance.now()
-    const setClip = (value: string) => {
-      el.style.clipPath = value
-      el.style.setProperty('-webkit-clip-path', value)
-    }
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1)
-      const radius = easeInOutCubic(progress) * 50
-      setClip(`circle(${radius}% at 50% 50%)`)
-      if (progress < 1) {
-        requestAnimationFrame(tick)
-      } else {
-        setClip('none')
-      }
-    }
-    requestAnimationFrame(tick)
-  }, [])
-
-  useEffect(() => {
-    if (inView) animateReveal()
-  }, [inView, animateReveal])
-
   return (
     <div ref={revealRef} className="isolate flex flex-col items-center pb-[220px] lg:pb-[263px] xl:pb-[263px] 2xl:pb-[378px]">
       <div
-        ref={(node) => {
-          circleRef.current = node
-          parallaxRef.current = node
-        }}
+        ref={parallaxRef}
         className="relative z-[2] mb-[-220px] h-[420px] w-[420px] shrink-0 overflow-hidden rounded-full lg:mb-[-262px] lg:min-h-[525px] lg:min-w-[525px] lg:h-[525px] lg:w-[525px] xl:mb-[-262px] xl:min-h-[525px] xl:min-w-[525px] xl:h-[525px] xl:w-[525px] 2xl:mb-[-378px] 2xl:h-[755px] 2xl:w-[755px]"
-        style={{ clipPath: 'circle(0% at 50% 50%)', WebkitClipPath: 'circle(0% at 50% 50%)' }}
+        style={{
+          transform: inView ? 'scale(1)' : 'scale(0)',
+          transition: 'transform 1.2s cubic-bezier(0.65, 0, 0.35, 1)',
+        }}
       >
         <Image
           src={displaySrc}
