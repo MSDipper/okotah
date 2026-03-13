@@ -50,14 +50,18 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
 
     const duration = 1200
     const start = performance.now()
+    const setClip = (value: string) => {
+      el.style.clipPath = value
+      el.style.setProperty('-webkit-clip-path', value)
+    }
     const tick = (now: number) => {
       const progress = Math.min((now - start) / duration, 1)
       const radius = easeInOutCubic(progress) * 50
-      el.style.clipPath = `circle(${radius}% at 50% 50%)`
+      setClip(`circle(${radius}% at 50% 50%)`)
       if (progress < 1) {
         requestAnimationFrame(tick)
       } else {
-        el.style.clipPath = 'none'
+        setClip('none')
       }
     }
     requestAnimationFrame(tick)
@@ -75,7 +79,7 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
           parallaxRef.current = node
         }}
         className="relative z-[2] mb-[-220px] h-[420px] w-[420px] shrink-0 overflow-hidden rounded-full lg:mb-[-262px] lg:min-h-[525px] lg:min-w-[525px] lg:h-[525px] lg:w-[525px] xl:mb-[-262px] xl:min-h-[525px] xl:min-w-[525px] xl:h-[525px] xl:w-[525px] 2xl:mb-[-378px] 2xl:h-[755px] 2xl:w-[755px]"
-        style={{ clipPath: 'circle(0% at 50% 50%)' }}
+        style={{ clipPath: 'circle(0% at 50% 50%)', WebkitClipPath: 'circle(0% at 50% 50%)' }}
       >
         <Image
           src={displaySrc}
