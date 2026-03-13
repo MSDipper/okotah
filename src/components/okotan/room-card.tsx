@@ -41,7 +41,7 @@ export function RoomCard({ title, descriptions, imageSrc, showArrows, allImages 
     <div ref={revealRef} className="isolate flex flex-col items-center pb-[220px] lg:pb-[263px] xl:pb-[263px] 2xl:pb-[378px]">
       <div
         ref={parallaxRef}
-        className="relative z-[2] mb-[-220px] h-[420px] w-[420px] shrink-0 overflow-hidden rounded-full lg:mb-[-262px] lg:min-h-[525px] lg:min-w-[525px] lg:h-[525px] lg:w-[525px] xl:mb-[-262px] xl:min-h-[525px] xl:min-w-[525px] xl:h-[525px] xl:w-[525px] 2xl:mb-[-378px] 2xl:h-[755px] 2xl:w-[755px]"
+        className="relative z-[2] mb-[-220px] aspect-square w-[420px] shrink-0 overflow-hidden rounded-full lg:mb-[-262px] lg:w-[525px] xl:mb-[-262px] xl:w-[525px] 2xl:mb-[-378px] 2xl:w-[755px]"
         style={{
           transform: inView ? 'scale(1)' : 'scale(0)',
           transition: 'transform 1.2s cubic-bezier(0.65, 0, 0.35, 1)',
